@@ -1,69 +1,38 @@
 "----------------------------------------------------------------------------------------------
-if filereadable(expand("~/.vim/bundle/Vundle.vim/.git/HEAD"))
-    set nocompatible              " required
-    filetype off                  " required
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
-    Plugin 'AndrewRadev/switch.vim'
-    Plugin 'bkad/CamelCaseMotion'
-    Plugin 'editorconfig/editorconfig-vim'
-    Plugin 'gmarik/Vundle.vim'
-    Plugin 'mattn/emmet-vim'
-    Plugin 'noahfrederick/vim-skeleton'
-    Plugin 'scrooloose/NERDTree'
-    Plugin 'tpope/vim-fugitive'
-    Plugin 'tpope/vim-surround'
-    Plugin 'tpope/vim-vinegar'
-    call vundle#end()            " required
+"switch between this.that and this->that
+let g:switch_mapping = "<Leader>,"
+let b:switch_custom_definitions = [
+            \   {
+            \     '\(\k\+\)\.': '\1->',
+            \     '\(\k\+\)->': '\1.',
+            \    }
+            \ ]
 
-    "Plugin Specific Settings
+"CamelCase Motion settings
+" shift-w, shift-b, shift-e
+" to move by camelcase word
+map <S-W> <Plug>CamelCaseMotion_w
+map <S-B> <Plug>CamelCaseMotion_b
+map <S-E> <Plug>CamelCaseMotion_e
 
-    "switch between this.that and this->that
-    let g:switch_mapping = "<Leader>,"
-    let b:switch_custom_definitions = [
-                \   {
-                \     '\(\k\+\)\.': '\1->',
-                \     '\(\k\+\)->': '\1.',
-                \    }
-                \ ]
-
-    "CamelCase Motion settings
-    " shift-w, shift-b, shift-e
-    " to move by camelcase word
-    map <S-W> <Plug>CamelCaseMotion_w
-    map <S-B> <Plug>CamelCaseMotion_b
-    map <S-E> <Plug>CamelCaseMotion_e
-
-    " NERDTree Settings
-    let g:lasttab = 1
-    nnoremap <silent> <Leader>n :NERDTreeToggle<CR>:silent NERDTreeMirror<CR>
-    nnoremap <silent> <Leader>s :let g:lasttab = tabpagenr()<CR>:tabdo NERDTreeClose<CR>:exe "tabn ".g:lasttab<CR>:mksession!<CR>
-    nnoremap <silent> <Leader>o :let g:lasttab = tabpagenr()<CR>:tabdo NERDTreeToggle \| silent NERDTreeMirror<CR>:tabdo windo echo<CR>:exe "tabn ".g:lasttab<CR>
-    "autocmd VimEnter * :NERDTree
-    "autocmd BufWinEnter * :NERDTreeMirror
-    "
-
-    function! s:check_back_space() abort
-        let col = col('.') - 1
-        return !col || getline('.')[col - 1]  =~# '\s'
-    endfunction
-
-    "TODO maybe integrate into plugin
-    let g:skeleton_replacements = {}
-    function! g:skeleton_replacements.UBASENAME()
-        return toupper(fnamemodify(expand('%'), ':t:r'))
-    endfunction
-endif
-filetype plugin indent on    " required
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+" NERDTree Settings
+let g:lasttab = 1
+nnoremap <silent> <Leader>n :NERDTreeToggle<CR>:silent NERDTreeMirror<CR>
+nnoremap <silent> <Leader>s :let g:lasttab = tabpagenr()<CR>:tabdo NERDTreeClose<CR>:exe "tabn ".g:lasttab<CR>:mksession!<CR>
+nnoremap <silent> <Leader>o :let g:lasttab = tabpagenr()<CR>:tabdo NERDTreeToggle \| silent NERDTreeMirror<CR>:tabdo windo echo<CR>:exe "tabn ".g:lasttab<CR>
+"autocmd VimEnter * :NERDTree
+"autocmd BufWinEnter * :NERDTreeMirror
 "
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-"----------------------------------------------------------------------------------------------
-"
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+"TODO maybe integrate into plugin
+let g:skeleton_replacements = {}
+function! g:skeleton_replacements.UBASENAME()
+    return toupper(fnamemodify(expand('%'), ':t:r'))
+endfunction
 
 filetype plugin indent on
 set nocompatible
@@ -102,7 +71,7 @@ nnoremap  ; :
 inoremap jk <esc>
 inoremap kj <esc>
 
-"Change the keys for scrolling the entire screen                                                         
+"Change the keys for scrolling the entire screen
 nnoremap <space> <C-d>
 nnoremap <backspace> <C-u>
 

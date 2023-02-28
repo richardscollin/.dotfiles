@@ -1,0 +1,3 @@
+#!/bin/bash
+
+~/.vim/install.sh ~/.vim # install vim plugins

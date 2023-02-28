@@ -1,2 +1,3 @@
 EXCLUDES="README.md scripts"
 TAGS="bash git vim"
+SYMLINK_DIRS="vim"

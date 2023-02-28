@@ -2,11 +2,17 @@
 
 My configuration files managed with [rcm](http://thoughtbot.github.io/rcm/).
 
-## Setup with rcup
+## Setup
 
 ```
 git clone git@github.com:richardscollin/dotfiles.git ~/.dotfiles
+
+# with rcm
+sudo apt-get install rcm
 RCRC=$HOME/.dotfiles/rcrc rcup -v
+
+# without rcm
+./scripts/install.sh
 ```
 
 RCM assumes that the dotfiles will be installed at `~/.dotfiles`. Also it is managing it's own configuration which is used after installed at `~/.rcrc`. For this reason you must either set the config on first install or run the install command twice.
