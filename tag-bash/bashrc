@@ -1,0 +1,52 @@
+# An ascetic bashrc
+[[ $- == *i* ]] || return # If not running interactively, don't do anything
+_source_if() { [[ -r "$1" ]] && source "$1"; } # conditionally source file github.com/rwxrob/dot
+
+PROMPT_COMMAND="__ps1"
+__ps1() {
+# modified from github.com/rwxrob/dot
+  local P='$' dir="${PWD##*/}" B \
+    r='\[\e[31m\]' g='\[\e[30m\]' h='\[\e[34m\]' \
+    u='\[\e[33m\]' p='\[\e[34m\]' w='\[\e[35m\]' \
+    b='\[\e[36m\]' reset='\[\e[0m\]'
+
+  [[ $EUID == 0 ]] && P='#' && u=$r && p=$u # root
+  [[ $PWD = / ]] && dir=/
+  [[ $PWD = "$HOME" ]] && dir='~'
+
+  B=$(git branch --show-current 2>/dev/null)
+  [[ $dir = "$B" ]] && B=.
+
+  [[ $B == master || $B == main ]] && b="$r"
+  [[ -n "$B" ]] && B="$g($b$B$g)"
+
+  PS1="$g╔ $u\u$g@$h\h$g:$w$dir$B\n$g╚ $p$P$reset "
+}
+
+shopt -s histappend # append to the history file, don't overwrite it
+HISTCONTROL=ignoreboth # don't put duplicate lines or lines starting with space in the history.
+HISTSIZE=1000 # only load last n lines into bash history
+HISTFILESIZE=-1 # don't truncate history file
+
+eval "$(SHELL=/bin/sh lesspipe)" # use lesspipe(1)
+eval "$(dircolors -b ~/.dircolors)"
+
+export CFLAGS="-Wall -g"
+export EDITOR="vim"
+
+_source_if /usr/share/bash-completion/bash_completion
+_source_if ~/.aliases
+
+export JAVA_HOME='/usr/lib/jvm/default' # Java
+PATH="/snap/bin:$PATH" # snap
+PATH="$PATH:/usr/local/go/bin" # Go
+PATH="$PATH:$HOME/.cabal/bin" # Haskell
+PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl" # Perl
+PATH="$PATH:$HOME/.rvm/bin" # Ruby
+# export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
+# source ~/.rvm/scripts/rvm # sets GEM_HOME
+export PATH
+
+export NVM_DIR="$HOME/.nvm"
+_source_if "$NVM_DIR/nvm.sh" # load nvm
+_source_if "$NVM_DIR/bash_completion"  # load nvm bash_completion
