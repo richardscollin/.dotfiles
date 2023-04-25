@@ -25,8 +25,12 @@ __ps1() {
 
 shopt -s histappend # append to the history file, don't overwrite it
 HISTCONTROL=ignoreboth # don't put duplicate lines or lines starting with space in the history.
-HISTSIZE=1000 # only load last n lines into bash history
+HISTSIZE=-1 # only load last n lines into bash history; -1 load all
 HISTFILESIZE=-1 # don't truncate history file
+HISTTIMEFORMAT="%s" # include command unix timestamp in history
+# append in memory history to file - history -a
+# trigger reload history from file - history -r
+# histsync alias does append then reload
 
 # paths defined in this way so we can easily enable and disable sections
 IFS=:
@@ -35,6 +39,7 @@ declare -A PATHS=(
 [haskell]=~/.cabal/bin
 [perl]=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
 [ruby]=~/.rvm/bin
+[local]=~/bin
 )
 export PATH="$PATH:${PATHS[*]}"
 unset IFS
@@ -52,3 +57,5 @@ _source_if "$NVM_DIR/bash_completion"  # load nvm bash_completion
 
 _source_if /usr/share/bash-completion/bash_completion
 _source_if ~/.aliases
+
+motd

@@ -1,26 +1,52 @@
-c()  { builtin cd "$@" && ls --color=auto; } # run ls after cd'ing
-cd() { builtin cd "$@" && ls --color=auto; } # run ls after cd'ing
-alias copy="xclip -selection clipboard"
-alias chmox="chmod +x "
-alias g="git"
-alias info="info --vi-keys"
-alias o="xdg-open "
-alias open="xdg-open "
-alias py="python3"
-alias s="sudo "
-alias sl="ls "
-alias sudo="sudo " # makes aliases work with sudo
-alias v="vim "
-alias todo="vim ~/todo"
-alias mktransparent="sh -c 'xprop -f _NET_WM_WINDOW_OPACITY 32c -set _NET_WM_WINDOW_OPACITY $(printf 0x%x $((0xffffffff * 80 / 100)))'"
-alias whoowns="dpkg-query -S"
+cd() {
+  case "$*" in
+    '...')
+      local dir
+      dir="$(git rev-parse --show-toplevel 2>/dev/null)"
+      if [[ $? -ne 0 ]]; then
+        printf '%s\n' "${FUNCNAME[0]}: not inside a git repository"
+        return 1
+      fi
+      set -- "$dir"
+    ;;
+  esac
+  builtin cd "$@" && ls --color=auto # run ls after cd'ing
+}
 
-# ubuntu aliases from default .bashrc
+export CDPATH=.:~/.marks/
+function mark {
+  ln -sr "${PWD}" ~/.marks/"$1"
+}
+alias marks="ls ~/.marks"
+
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
+alias chmox="chmod +x "
+alias copy="xclip -selection clipboard"
+alias g="git"
 alias grep='grep --color=auto'
+alias histsync="history -a; history -r"
+alias hs="history -a; history -r"
+alias info="info --vi-keys"
 alias l='ls -CF'
 alias la='ls -A'
 alias ll='ls -alF'
 alias ls='ls --color=auto'
+alias m="make "
+alias o="xdg-open "
+alias open="xdg-open "
+alias py="python3.11"
+alias s="sudo "
+alias sl="ls "
+alias sudo="sudo " # makes aliases work with sudo
+alias t="task"
+alias tasks="task"
+alias whoowns="dpkg-query -S"
+
+alias mktransparent="sh -c 'xprop -f _NET_WM_WINDOW_OPACITY 32c -set _NET_WM_WINDOW_OPACITY $(printf 0x%x $((0xffffffff * 80 / 100)))'"
+
+function v {
+    echo -ne "\033]0;$@\007"
+    vim $@
+    echo -ne "\033]0;Terminal\007"
+}
+
