@@ -10,7 +10,7 @@ cd() {
       set -- "$dir"
     ;;
   esac
-  builtin cd "$@" && ls --color=auto # run ls after cd'ing
+  builtin cd "$@" && ls # run ls after cd'ing
 }
 
 export CDPATH=.:~/.marks/
@@ -33,7 +33,6 @@ alias ll='ls -alF'
 alias ls='ls --color=auto'
 alias m="make "
 alias o="xdg-open "
-alias open="xdg-open "
 alias py="python3.11"
 alias s="sudo "
 alias sl="ls "
