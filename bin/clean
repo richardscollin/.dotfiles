@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
-import os
 import click
+import git
+import os
+
+git_check_subdirs = [
+    "~",
+    "~/Code",
+    "~/Git",
+]
 
 allowed_hidden_files = set([
     ".agignore",
@@ -36,3 +43,18 @@ if extra_files:
 else:
     print("No extra files found")
 
+
+def is_git_project(dirpath):
+    return os.path.isdir(os.path.join(dirpath, ".git"))
+
+git_projects = []
+for dirname in git_check_subdirs:
+    dirname = os.path.expanduser(dirname)
+    for de in os.scandir(dirname):
+        if de.is_dir() and is_git_project(de.path):
+            git_projects.append(de.path)
+
+for project_dir in git_projects:
+    repo = git.Repo(project_dir)
+    if repo.is_dirty(untracked_files=True):
+        print(project_dir + " is dirty")
