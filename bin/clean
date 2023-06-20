@@ -12,24 +12,20 @@ git_check_subdirs = [
 allowed_hidden_files = set([
     ".agignore",
     ".aliases",
+    ".bash",
     ".bash_history",
     ".bash_logout",
     ".bashrc",
     ".cache",
     ".config",
-    ".dircolors",
     ".dotfiles",
-    ".gitconfig",
     ".gnupg",
-    ".inputrc",
     ".local",
     ".mozilla",
     ".password-store",
     ".profile",
     ".ssh",
-    ".tmux.conf",
     ".vim",
-    ".vimrc",
 ])
 
 home = os.path.expanduser("~")
