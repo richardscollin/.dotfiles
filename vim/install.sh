@@ -10,3 +10,5 @@ git_clone_or_pull() {
 cat "$1/package-list" | while read package ; do
     git_clone_or_pull $package
 done
+wait
+echo parallel update repos complete

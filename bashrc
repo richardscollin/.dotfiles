@@ -4,7 +4,6 @@ _source_if() { [[ -r "$1" ]] && source "$1"; } # conditionally source file githu
 
 __git_ps1 () { PS1="$1$2"; } # fallback if not sourced
 _source_if /usr/lib/git-core/git-sh-prompt
-_source_if ~/.git-prompt.sh
 PROMPT_COMMAND="__ps1"
 __ps1() {
 # modified from github.com/rwxrob/dot
@@ -43,13 +42,13 @@ export PATH="$PATH:${PATHS[*]}"
 unset IFS
 
 eval "$(SHELL=/bin/sh lesspipe)" # use lesspipe(1)
-eval "$(dircolors -b ~/.dircolors)"
-export CFLAGS="-Wall -g"
-export EDITOR="vim"
 # export JAVA_HOME='/usr/lib/jvm/default' # Java
 # export NVM_DIR="$HOME/.nvm"
 # _source_if "$NVM_DIR/nvm.sh" # load nvm
 # _source_if "$NVM_DIR/bash_completion"  # load nvm bash_completion
 
 _source_if /usr/share/bash-completion/bash_completion
-_source_if ~/.aliases
+
+eval "$(dircolors -b ~/.bash/dircolors)"
+_source_if ~/.bash/aliases
+_source_if ~/.bash/environments

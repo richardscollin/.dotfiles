@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+import os
+import click
+
+allowed_hidden_files = set([
+    ".agignore",
+    ".aliases",
+    ".bash_history",
+    ".bash_logout",
+    ".bashrc",
+    ".cache",
+    ".config",
+    ".dircolors",
+    ".dotfiles",
+    ".gitconfig",
+    ".gnupg",
+    ".inputrc",
+    ".local",
+    ".mozilla",
+    ".password-store",
+    ".profile",
+    ".ssh",
+    ".tmux.conf",
+    ".vim",
+    ".vimrc",
+])
+
+home = os.path.expanduser("~")
+hidden_files = [f.name for f in os.scandir(home) if f.name[0] == '.']
+extra_files = set(hidden_files) - allowed_hidden_files
+
+if extra_files:
+    print("Extra files found:")
+    for f in sorted(extra_files):
+        print("\t" + f)
+else:
+    print("No extra files found")
+

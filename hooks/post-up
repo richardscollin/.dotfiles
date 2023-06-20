@@ -1,3 +1,15 @@
 #!/bin/bash
+
+function mklink() {
+    dst="$1"
+    src="$2"
+
+    echo "$src -> $dst"
+    ln -s "$dst" "$src"
+}
+
+mklink /home/collin/.dotfiles/git $HOME/.config
+mklink /home/collin/.dotfiles/tmux $HOME/.config
+
 echo updating vim plugins
 ~/.vim/install.sh ~/.vim # install vim plugins
