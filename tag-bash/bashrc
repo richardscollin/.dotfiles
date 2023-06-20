@@ -2,6 +2,8 @@
 [[ $- == *i* ]] || return # If not running interactively, don't do anything
 _source_if() { [[ -r "$1" ]] && source "$1"; } # conditionally source file github.com/rwxrob/dot
 
+__git_ps1 () { PS1="$1$2"; } # fallback if not sourced
+_source_if /usr/lib/git-core/git-sh-prompt
 _source_if ~/.git-prompt.sh
 PROMPT_COMMAND="__ps1"
 __ps1() {
@@ -35,27 +37,19 @@ HISTTIMEFORMAT="%s" # include command unix timestamp in history
 # paths defined in this way so we can easily enable and disable sections
 IFS=:
 declare -A PATHS=(
-[go]=/usr/local/go/bin
-[haskell]=~/.cabal/bin
-[perl]=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
-[ruby]=~/.rvm/bin
 [local]=~/bin
 )
 export PATH="$PATH:${PATHS[*]}"
 unset IFS
-# export PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
-# source ~/.rvm/scripts/rvm # sets GEM_HOME
 
 eval "$(SHELL=/bin/sh lesspipe)" # use lesspipe(1)
 eval "$(dircolors -b ~/.dircolors)"
 export CFLAGS="-Wall -g"
 export EDITOR="vim"
-export JAVA_HOME='/usr/lib/jvm/default' # Java
-export NVM_DIR="$HOME/.nvm"
-_source_if "$NVM_DIR/nvm.sh" # load nvm
-_source_if "$NVM_DIR/bash_completion"  # load nvm bash_completion
+# export JAVA_HOME='/usr/lib/jvm/default' # Java
+# export NVM_DIR="$HOME/.nvm"
+# _source_if "$NVM_DIR/nvm.sh" # load nvm
+# _source_if "$NVM_DIR/bash_completion"  # load nvm bash_completion
 
 _source_if /usr/share/bash-completion/bash_completion
 _source_if ~/.aliases
-
-motd

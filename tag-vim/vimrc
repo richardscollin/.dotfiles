@@ -92,5 +92,3 @@ set tags=./tags,tags,~/.vim/ctags/tags
 if has("xterm_clipboard")
     set clipboard=unnamedplus
 endif
-
-color peachpuff

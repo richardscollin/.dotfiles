@@ -33,5 +33,6 @@
 	branch = false
 [push]
 	default = simple
-[include]
-	path = ~/.gituserinfo
+[user]
+	name = Collin Richards
+	email = richardscollin@gatech.edu
