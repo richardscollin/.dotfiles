@@ -26,6 +26,7 @@ allowed_hidden_files = set([
     ".profile",
     ".ssh",
     ".vim",
+    ".viminfo",
 ])
 
 home = os.path.expanduser("~")
