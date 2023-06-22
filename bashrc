@@ -52,3 +52,5 @@ _source_if /usr/share/bash-completion/bash_completion
 eval "$(dircolors -b ~/.bash/dircolors)"
 _source_if ~/.bash/aliases
 _source_if ~/.bash/environments
+
+motd
