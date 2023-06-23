@@ -4,7 +4,8 @@ _sourceif () { for arg in "$@"; do [[ -r "$arg" ]] && source "$arg"; done ; }
 __git_ps1 () { PS1="$1$2"; } # fallback if not sourced
 _sourceif /usr/lib/git-core/git-sh-prompt
 __ps1() { # modified from github.com/rwxrob/dot
-  local black='\[\e[30m\]' yellow='\[\e[33m\]' blue='\[\e[34m\]' purple='\[\e[35m\]' reset='\[\e[0m\]'
+  # K - black, Y - yellow, B - blue, M - magenta, Z - reset
+  local K='\[\e[30m\]' Y='\[\e[33m\]' B='\[\e[34m\]' M='\[\e[35m\]' Z='\[\e[0m\]'
   local dir="${PWD##*/}"
   [[ $PWD = / ]] && dir=/
   [[ $PWD = "$HOME" ]] && dir='~'
@@ -13,7 +14,7 @@ __ps1() { # modified from github.com/rwxrob/dot
   GIT_PS1_SHOWDIRTYSTATE=1 \
   GIT_PS1_SHOWSTASHSTATE=1 \
   GIT_PS1_SHOWUNTRACKEDFILES=1 \
-  __git_ps1 "$black╔ $yellow\u$grey@$blue\h$black:$purple$dir$reset" "\n$black╚ $blue\$$reset "
+  __git_ps1 "$K╔ $Y\u$K@$B\h$K:$M$dir$Z" "\n$K╚ $B\$$Z "
 }
 PROMPT_COMMAND="__ps1"
 
