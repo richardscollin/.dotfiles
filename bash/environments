@@ -2,4 +2,5 @@ export CFLAGS="-Wall -g"
 export EDITOR="vim"
 export INPUTRC=$HOME/.dotfiles/bash/inputrc
 export LESSHISTFILE=/dev/null # prevent creation of ~/.lesshst
+export NVM_DIR="$HOME/Git/nvm"
 export RCRC=$HOME/.dotfiles/rcrc
