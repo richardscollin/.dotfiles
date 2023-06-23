@@ -89,6 +89,9 @@ cnoremap q1 q!
 "Ctags settings
 set tags=./tags,tags,~/.vim/ctags/tags
 
+"XDG_STATE_HOME viminfo
+set viminfofile=~/.local/state/vim/viminfo
+
 if has("xterm_clipboard")
     set clipboard=unnamedplus
 endif

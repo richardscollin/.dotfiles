@@ -13,8 +13,6 @@ allowed_hidden_files = set([
     ".agignore",
     ".aliases",
     ".bash",
-    ".bash_history",
-    ".bash_logout",
     ".bashrc",
     ".cache",
     ".config",
@@ -26,7 +24,6 @@ allowed_hidden_files = set([
     ".profile",
     ".ssh",
     ".vim",
-    ".viminfo",
 ])
 
 home = os.path.expanduser("~")

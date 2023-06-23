@@ -20,8 +20,9 @@ PROMPT_COMMAND="__ps1"
 
 shopt -s histappend # append to the history file, don't overwrite it
 HISTCONTROL=ignoreboth # don't put duplicate lines or lines starting with space in the history.
-HISTSIZE=-1 # only load last n lines into bash history; -1 load all
+HISTFILE=~/.local/state/bash_history # move history file outside of home
 HISTFILESIZE=-1 # don't truncate history file
+HISTSIZE=-1 # only load last n lines into bash history; -1 load all
 HISTTIMEFORMAT="%s" # include command unix timestamp in history
 
 eval "$(dircolors -b ~/.bash/dircolors)"

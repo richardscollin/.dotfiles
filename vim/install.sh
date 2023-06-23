@@ -1,6 +1,6 @@
 #!/bin/bash
 startdir="$1/pack/my-plugins/start"
-mkdir -p $startdir
+mkdir -p $startdir ~/.local/state/vim
 
 git_clone_or_pull() {
     dir=$startdir/$(basename "$1")
