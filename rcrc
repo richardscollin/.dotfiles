@@ -1,4 +1,4 @@
-EXCLUDES="README.md scripts rcrc git tmux npm"
+EXCLUDES="README.md scripts rcrc agignore git tmux npm"
 SYMLINK_DIRS="bash bin vim"
 UNDOTTED="bin"
 # note some files are symlinked by the post-up hook
