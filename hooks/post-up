@@ -6,9 +6,11 @@ function mklink() {
     ln -s "$dst" "$src"
 }
 
-mklink /home/collin/.dotfiles/git $HOME/.config
-mklink /home/collin/.dotfiles/tmux $HOME/.config
-mklink /home/collin/.dotfiles/npm $HOME/.config
+source ../bash/environments
+mklink $DOTFILES_DIR/bash $HOME/.config
+mklink $DOTFILES_DIR/git $HOME/.config
+mklink $DOTFILES_DIR/npm $HOME/.config
+mklink $DOTFILES_DIR/tmux $HOME/.config
 
 echo updating vim plugins
 ~/.vim/install.sh ~/.vim # install vim plugins

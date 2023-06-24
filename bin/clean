@@ -7,21 +7,15 @@ git_check_subdirs = [
     "~",
     "~/Code",
     "~/Git",
+    "~/.config",
 ]
 
 allowed_hidden_files = set([
-    ".agignore",
-    ".aliases",
-    ".bash",
     ".bashrc",
     ".cache",
     ".config",
-    ".dotfiles",
-    ".gnupg",
     ".local",
     ".mozilla",
-    ".password-store",
-    ".profile",
     ".ssh",
     ".vim",
 ])

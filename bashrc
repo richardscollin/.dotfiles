@@ -25,8 +25,9 @@ HISTFILESIZE=-1 # don't truncate history file
 HISTSIZE=-1 # only load last n lines into bash history; -1 load all
 HISTTIMEFORMAT="%s" # include command unix timestamp in history
 
-eval "$(dircolors -b ~/.bash/dircolors)"
-_sourceif ~/.bash/environments ~/.bash/aliases /usr/share/bash-completion/bash_completion
+eval "$(dircolors -b ~/.config/bash/dircolors)"
+_sourceif ~/.config/bash/environments ~/.config/bash/aliases /usr/share/bash-completion/bash_completion
 _sourceif "$NVM_DIR/nvm.sh" "$NVM_DIR/bash_completion"
 
+export PATH=$PATH:$HOME/bin
 motd
