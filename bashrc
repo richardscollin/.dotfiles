@@ -30,4 +30,5 @@ _sourceif ~/.config/bash/environments ~/.config/bash/aliases /usr/share/bash-com
 _sourceif "$NVM_DIR/nvm.sh" "$NVM_DIR/bash_completion"
 
 export PATH=$PATH:$HOME/bin
+export PATH=$PATH:/opt/anki/bin
 motd

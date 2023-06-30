@@ -29,6 +29,8 @@
 	prune = true
 [help]
 	autocorrect = 25
+[init]
+	defaultBranch = master
 [pager]
 	branch = false
 [push]

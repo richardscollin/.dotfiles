@@ -1,5 +1,5 @@
 DOTFILES_DIRS="~/.config/dotfiles"
 EXCLUDES="README.md scripts rcrc agignore bash git tmux npm"
-SYMLINK_DIRS="bin vim"
+SYMLINK_DIRS="vim"
 UNDOTTED="bin"
 # note some files are symlinked by the post-up hook

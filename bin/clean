@@ -14,8 +14,10 @@ allowed_hidden_files = set([
     ".bashrc",
     ".cache",
     ".config",
+    ".gnupg",
     ".local",
     ".mozilla",
+    ".python_history",
     ".ssh",
     ".vim",
 ])

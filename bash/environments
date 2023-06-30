@@ -1,7 +1,6 @@
 export CFLAGS="-Wall -g"
 export DOTFILES_DIR="$HOME/.config/dotfiles"
 export EDITOR="vim"
-export GNUPGHOME="$HOME/.local/share/gnupg"
 export INPUTRC=$DOTFILES_DIR/bash/inputrc
 export LESSHISTFILE=/dev/null # prevent creation of ~/.lesshst
 export NPM_CONFIG_USERCONFIG=~/.config/npm/config
