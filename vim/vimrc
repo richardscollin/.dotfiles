@@ -41,7 +41,7 @@ set tabstop=8
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-autocmd BufNewFile,BufNew,BufRead *.html,*.css,*.js,*.vue,*.rb,*.html.erb set shiftwidth=2 softtabstop=2
+autocmd BufNewFile,BufNew,BufRead TODO,*.md,*.html,*.css,*.js,*.vue,*.rb,*.html.erb set shiftwidth=2 softtabstop=2
 
 "File specific settings
 autocmd BufNewFile,BufNew,BufRead *.txt,*.html,*.md set wrap linebreak

@@ -1,2 +1,3 @@
 #!/bin/bash
-apropos . | shuf -n1
+# apropos . | shuf -n1
+shuf -n1 ~/.config/dotfiles/bin/commands
