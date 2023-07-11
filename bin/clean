@@ -17,7 +17,7 @@ allowed_hidden_files = set([
     ".gnupg",
     ".local",
     ".mozilla",
-    ".python_history",
+    ".pki",
     ".ssh",
     ".vim",
 ])
@@ -48,3 +48,8 @@ for project_dir in git_projects:
     repo = git.Repo(project_dir)
     if repo.is_dirty(untracked_files=True):
         print(project_dir + " is dirty")
+
+whitelist = {os.path.expanduser(p) for p in ["~/Code/code-archive"]}
+for de in os.scandir(os.path.expanduser("~/Code")):
+    if de.is_dir() and not is_git_project(de.path) and de.path not in whitelist:
+        print(de.path + " is in code repo and isn't a git repo")

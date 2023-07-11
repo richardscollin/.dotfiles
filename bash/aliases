@@ -29,12 +29,18 @@ alias py="python3.11"
 alias s="sudo "
 alias sl="ls "
 alias sudo="sudo " # makes aliases work with sudo
-alias t="task"
-alias tasks="task"
-alias todo="vim -o ~/TODO ~/Documents/journal/$(date +%F).md"
 alias whoowns="dpkg-query -S"
+alias whyinstalled="dpkg-query -S"
 
 alias mktransparent="sh -c 'xprop -f _NET_WM_WINDOW_OPACITY 32c -set _NET_WM_WINDOW_OPACITY $(printf 0x%x $((0xffffffff * 80 / 100)))'"
+
+function todo {
+    if [[ "$1" == "-p" ]]; then # -p for previous day
+        vim -o $HOME/TODO $HOME/Documents/journal/$(date --date yesterday +%F).md $HOME/Documents/journal/weekly.md
+    else
+        vim -o $HOME/TODO $HOME/Documents/journal/$(date +%F).md $HOME/Documents/journal/weekly.md
+    fi
+}
 
 function journal {
     if [[ "$1" == "-p" ]]; then # -p for previous day

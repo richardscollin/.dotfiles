@@ -10,7 +10,7 @@ let b:switch_custom_definitions = [
 
 "CamelCase Motion settings
 " shift-w, shift-b, shift-e
-" to move by camelcase word
+" to move by camelCase word
 map <S-W> <Plug>CamelCaseMotion_w
 map <S-B> <Plug>CamelCaseMotion_b
 map <S-E> <Plug>CamelCaseMotion_e
@@ -47,16 +47,22 @@ autocmd BufNewFile,BufNew,BufRead TODO,*.md,*.html,*.css,*.js,*.vue,*.rb,*.html.
 autocmd BufNewFile,BufNew,BufRead *.txt,*.html,*.md set wrap linebreak
 autocmd BufNewFile,BufNew,BufRead *.c set colorcolumn=80
 autocmd FileType c,cpp setlocal equalprg=clang-format
+autocmd FileType cpp setlocal keywordprg=cppman
+autocmd FileType py setlocal keywordprg=pydoc
 
 set mouse=a
 set wildmenu
 set nocursorline "decreases latency on large files
 
+set spell
+set spelloptions=camel " spell check on camel case too
+set spellcapcheck= " disable capitalization error on first letter of string
+
 syntax on
 set nojoinspaces
 set nowrap
 set number
-"set rnu
+"set relativenumber
 
 set encoding=utf-8
 set laststatus=2
@@ -95,3 +101,7 @@ set viminfofile=~/.local/state/vim/viminfo
 if has("xterm_clipboard")
     set clipboard=unnamedplus
 endif
+
+" config that applies to just this file
+" :h modeline
+" vim: nospell
