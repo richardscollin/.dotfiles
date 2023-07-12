@@ -1,7 +1,7 @@
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias chmox="chmod +x "
 alias copy="xclip -selection clipboard"
-alias g="git"
+alias g=git
 alias grep='grep --color=auto'
 alias histsync="history -a; history -r"
 alias hs="history -a; history -r"
@@ -16,14 +16,12 @@ elif [[ "$OSTYPE" == "darwin" ]]; then
     alias ls="ls -G" # mac uses bsd ls which requires -G for colors instead of --colors
 fi
 
-alias m="make "
-alias o="xdg-open "
-alias py="python3.11"
-alias s="sudo "
-alias sl="ls "
-alias sudo="sudo " # makes aliases work with sudo
+alias mk=make
+alias o=xdg-open
+alias sl=ls
 alias whoowns="dpkg-query -S"
 alias whyinstalled="dpkg-query -S"
+alias v=vim
 alias vimrc="vim ~/.vim/vimrc"
 
 alias mktransparent="sh -c 'xprop -f _NET_WM_WINDOW_OPACITY 32c -set _NET_WM_WINDOW_OPACITY $(printf 0x%x $((0xffffffff * 80 / 100)))'"
@@ -42,12 +40,6 @@ function journal {
     else
         vim ~/Documents/journal/$(date +%F).md
     fi
-}
-
-function v {
-    echo -ne "\033]0;$@\007"
-    vim $@
-    echo -ne "\033]0;Terminal\007"
 }
 
 cd() {

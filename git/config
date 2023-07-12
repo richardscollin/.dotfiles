@@ -19,6 +19,8 @@
 	sw   = switch
 	last = for-each-ref 'refs/heads' 'refs/remotes/*/[^H][^E][^A][^D]*' --sort=-committerdate --format='%(HEAD) %(refname:short) - (%(color:green)%(committerdate:relative)%(color:reset)) - %(color:yellow)%(authorname)%(color:reset) - %(contents:subject)'
 	del-remote-br = !sh -c 'git push origin :$1' -
+	init-github-remote = !sh -c 'init-github-remote'
+	init-dobby-remote = !sh -c 'init-dobby-remote'
 [color]
 	ui = auto
 [core]

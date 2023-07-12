@@ -1,0 +1,8 @@
+#!/bin/bash
+set -xe
+# precondition: running within an existing git repo w/o a github remote
+
+REPO=$(basename $PWD)
+gh repo create "${REPO}" --private
+GITHUB_REMOTE_SSH_URL=$(gh repo view "${REPO}" --json sshUrl --jq .sshUrl)
+git remote add github "${GITHUB_REMOTE_SSH_URL}"
