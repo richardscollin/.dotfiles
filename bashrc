@@ -28,13 +28,16 @@ HISTTIMEFORMAT="%s" # include command unix timestamp in history
 eval "$(dircolors -b ~/.config/bash/dircolors)"
 
 _sourceif \
-    ~/.config/bash/environments \
     ~/.config/bash/aliases \
-    /usr/share/bash-completion/bash_completion
+    ~/.config/bash/environments
 
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" --no-use # --no-use speeds up opening new terminals, see: https://github.com/nvm-sh/nvm/issues/539
-_sourceif "$NVM_DIR/bash_completion"
 
-export PATH=$PATH:$HOME/bin
+_sourceif \
+    /usr/share/bash-completion/bash_completion \
+    /usr/share/bash-completion/completions/git \
+    "$NVM_DIR/bash_completion"
+__git_complete g __git_main || true
+
 motd
 times

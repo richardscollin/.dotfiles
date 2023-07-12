@@ -15,14 +15,6 @@ map <S-W> <Plug>CamelCaseMotion_w
 map <S-B> <Plug>CamelCaseMotion_b
 map <S-E> <Plug>CamelCaseMotion_e
 
-" NERDTree Settings
-let g:lasttab = 1
-nnoremap <silent> <Leader>n :NERDTreeToggle<CR>:silent NERDTreeMirror<CR>
-nnoremap <silent> <Leader>s :let g:lasttab = tabpagenr()<CR>:tabdo NERDTreeClose<CR>:exe "tabn ".g:lasttab<CR>:mksession!<CR>
-nnoremap <silent> <Leader>o :let g:lasttab = tabpagenr()<CR>:tabdo NERDTreeToggle \| silent NERDTreeMirror<CR>:tabdo windo echo<CR>:exe "tabn ".g:lasttab<CR>
-"autocmd VimEnter * :NERDTree
-"autocmd BufWinEnter * :NERDTreeMirror
-"
 function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
@@ -33,6 +25,8 @@ let g:skeleton_replacements = {}
 function! g:skeleton_replacements.UBASENAME()
     return toupper(fnamemodify(expand('%'), ':t:r'))
 endfunction
+
+let g:netrw_dirhistmax = 0 " disable netrw history file
 
 filetype plugin indent on
 set nocompatible
@@ -54,7 +48,7 @@ set mouse=a
 set wildmenu
 set nocursorline "decreases latency on large files
 
-set spell
+"set spell
 set spelloptions=camel " spell check on camel case too
 set spellcapcheck= " disable capitalization error on first letter of string
 
@@ -101,6 +95,12 @@ set viminfofile=~/.local/state/vim/viminfo
 if has("xterm_clipboard")
     set clipboard=unnamedplus
 endif
+
+let g:ale_enabled = 0
+"let g:ale_linters_explicit = 1
+let g:ale_linters = { 'python': ['flake8'] }
+" let g:ale_fixers_explicit = 1
+" let b:ale_fixers = {'python': ['isort', 'black']}
 
 " config that applies to just this file
 " :h modeline

@@ -52,4 +52,4 @@ for project_dir in git_projects:
 whitelist = {os.path.expanduser(p) for p in ["~/Code/code-archive"]}
 for de in os.scandir(os.path.expanduser("~/Code")):
     if de.is_dir() and not is_git_project(de.path) and de.path not in whitelist:
-        print(de.path + " is in code repo and isn't a git repo")
+        print(de.path + " isn't in git")

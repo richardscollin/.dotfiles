@@ -1,7 +1,6 @@
 $include /etc/inputrc
 
 # stolen from https://www.topbug.net/blog/2017/07/31/inputrc-for-humans/
-set colored-stats On
 set completion-ignore-case On
 set mark-symlinked-directories On
 set show-all-if-ambiguous On
@@ -12,3 +11,4 @@ set visible-stats On
 # extra things I've added
 set expand-tilde On
 set skip-completed-text On
+set colored-stats Off # don't like blinking red tab complete from commands
