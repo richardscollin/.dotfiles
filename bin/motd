@@ -1,3 +1,5 @@
 #!/bin/bash
-# apropos . | shuf -n1
-shuf -n1 ~/.config/dotfiles/bin/commands
+if [ ! -f ~/.cache/motd-cache ];then
+    apropos . > ~/.cache/motd-cache
+fi
+shuf -n1 ~/.cache/motd-cache
