@@ -102,6 +102,9 @@ let g:ale_linters = { 'python': ['flake8'] }
 " let g:ale_fixers_explicit = 1
 " let b:ale_fixers = {'python': ['isort', 'black']}
 
+" abbreviations
+iab check ✓
+
 " config that applies to just this file
 " :h modeline
 " vim: nospell

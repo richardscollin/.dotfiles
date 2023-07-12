@@ -10,7 +10,7 @@
 	dc   = diff --cached
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	ol   = log --oneline
-        lg   = "log --format='%C(auto) %an %h %d %s'"
+        lg   = "log --format='%C(auto) %aN %h %d %s'"
 	ph   = push
 	pl   = pull
 	ps   = push
@@ -32,6 +32,10 @@
 	autocorrect = 25
 [init]
 	defaultBranch = master
+[log]
+	mailmap = true
+[mailmap]
+	file = ~/.config/git/mailmap
 [pager]
 	branch = false
 [push]
