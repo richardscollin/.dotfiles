@@ -31,7 +31,7 @@ if extra_files:
     for f in sorted(extra_files):
         print("\t" + f)
 else:
-    print("No extra files found")
+    print("No extra files found in ~")
 
 
 def is_git_project(dirpath):
@@ -48,8 +48,10 @@ for project_dir in git_projects:
     repo = git.Repo(project_dir)
     if repo.is_dirty(untracked_files=True):
         print(project_dir + " is dirty")
+        for f in repo.untracked_files:
+            print(f"\t{f}")
 
-whitelist = {os.path.expanduser(p) for p in ["~/Code/code-archive"]}
+whitelist = {os.path.expanduser(p) for p in ["~/Code/code-archive", "~/Code/hello-rust-book"]}
 for de in os.scandir(os.path.expanduser("~/Code")):
     if de.is_dir() and not is_git_project(de.path) and de.path not in whitelist:
         print(de.path + " isn't in git")
