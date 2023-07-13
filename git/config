@@ -11,6 +11,7 @@
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	ol   = log --oneline
         lg   = "log --format='%C(auto) %aN %h %d %s'"
+	pa   = !sh -c 'git push github && git push dobby'
 	ph   = push
 	pl   = pull
 	ps   = push
