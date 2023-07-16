@@ -3,7 +3,12 @@
 function mklink() {
     dst="$1"
     src="$2"
-    ln -s "$dst" "$src"
+
+    if [ -e "${src}/$(basename $dst)" ];then
+        echo dest "${src}/$(basename $dst)" already exists
+    else
+        ln -s "$dst" "$src"
+    fi
 }
 
 source ../bash/environments

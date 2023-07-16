@@ -99,9 +99,9 @@ endif
 set t_Co=16 " I prefer using the 16 colors instead of 256
 
 let g:ale_enabled = 1
-"let g:ale_linters_explicit = 1
+let g:ale_linters_explicit = 1
+let g:ale_fixers_explicit = 1
 let g:ale_linters = { 'rust': ['analyzer'] }
-" let g:ale_fixers_explicit = 1
 let b:ale_fixers = {'rust': ['rustfmt']}
 let g:rustfmt_autosave = 1
 
