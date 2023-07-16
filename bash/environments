@@ -9,5 +9,12 @@ export NPM_CONFIG_USERCONFIG=~/.config/npm/config
 export NVM_DIR="$HOME/Git/nvm"
 export PASSWORD_STORE_DIR="$HOME/.local/share/password-store"
 export RCRC=$DOTFILES_DIR/rcrc
+export RUSTUP_HOME="$HOME/.config/rustup"
 
-export PATH="$PATH:$HOME/bin"
+declare -A PATHS=(
+[local]=$HOME/bin
+[rust]=$HOME/.config/cargo/bin
+)
+IFS=:
+export PATH="$PATH:${PATHS[*]}"
+unset IFS
