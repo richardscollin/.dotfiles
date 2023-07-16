@@ -96,14 +96,13 @@ if has("xterm_clipboard")
     set clipboard=unnamedplus
 endif
 
+set t_Co=16 " I prefer using the 16 colors instead of 256
+
 let g:ale_enabled = 0
 "let g:ale_linters_explicit = 1
 let g:ale_linters = { 'python': ['flake8'] }
 " let g:ale_fixers_explicit = 1
 " let b:ale_fixers = {'python': ['isort', 'black']}
-
-" abbreviations
-iab check ✓
 
 " config that applies to just this file
 " :h modeline

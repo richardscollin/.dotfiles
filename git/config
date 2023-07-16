@@ -43,6 +43,6 @@
 	branch = false
 [push]
 	default = simple
-[user]
-	name = Collin Richards
-	email = richardscollin@gatech.edu
+[include]
+	path = ~/.config/git/personal
+	path = ~/.config/git/work
