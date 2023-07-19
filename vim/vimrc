@@ -1,3 +1,6 @@
+let mapleader = ","
+let g:mapleader = ","
+
 "----------------------------------------------------------------------------------------------
 "switch between this.that and this->that
 let g:switch_mapping = "<Leader>,"
@@ -27,6 +30,10 @@ function! g:skeleton_replacements.UBASENAME()
 endfunction
 
 let g:netrw_dirhistmax = 0 " disable netrw history file
+let g:netrw_winsize = 20 " default width size in characters
+let g:netrw_liststyle = 3 " tree style file view
+" comma e to toggle explorer
+nnoremap <Leader>e :Lexplore<CR>
 
 filetype plugin indent on
 set nocompatible
@@ -35,10 +42,12 @@ set tabstop=8
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+set wrap
 autocmd BufNewFile,BufNew,BufRead TODO,*.md,*.html,*.css,*.js,*.vue,*.rb,*.html.erb set shiftwidth=2 softtabstop=2
 
 "File specific settings
-autocmd BufNewFile,BufNew,BufRead *.txt,*.html,*.md set wrap linebreak
+
+autocmd BufNewFile,BufRead *.rs set filetype=rust
 autocmd BufNewFile,BufNew,BufRead *.c set colorcolumn=80
 autocmd FileType c,cpp setlocal equalprg=clang-format
 autocmd FileType cpp setlocal keywordprg=cppman
@@ -60,10 +69,6 @@ set number
 
 set encoding=utf-8
 set laststatus=2
-
-" Begin my config
-let mapleader = ","
-let g:mapleader = ","
 
 "
 " Custom mappings
@@ -87,7 +92,7 @@ nnoremap k gk
 cnoremap q1 q!
 
 "Ctags settings
-set tags=./tags,tags,~/.vim/ctags/tags
+set tags=./tags,tags,~/.vim/ctags/tags,.git/tags
 
 "XDG_STATE_HOME viminfo
 set viminfofile=~/.local/state/vim/viminfo
@@ -96,18 +101,25 @@ if has("xterm_clipboard")
     set clipboard=unnamedplus
 endif
 
-set t_Co=16 " I prefer using the 16 colors instead of 256
+" set completeopt=menu,menuone,preview,noselect,noinsert
+set completeopt=menu,menuone,popup,noselect,noinsert
 
+set omnifunc=ale#completion#OmniFunc
 let g:ale_enabled = 1
+let g:ale_completion_enabled = 1
+
+" displat rust information in floating window
+let g:ale_floating_preview = 1
+let g:ale_floating_window_border = repeat([''], 8)
+
 let g:ale_linters_explicit = 1
 let g:ale_fixers_explicit = 1
-let g:ale_completion_enabled = 1
 let g:rustfmt_autosave = 1
-
-set completeopt=longest,menuone
-
 let g:ale_linters = { 'rust': ['analyzer'] }
-let b:ale_fixers = {'rust': ['rustfmt']}
+let b:ale_fixers = {'rust': ['rustfmt', 'trim_whitespace', 'remove_trailing_lines']}
+
+autocmd FileType rust nnoremap K :ALEHover<CR>
+autocmd FileType rust nnoremap <C-]> :ALEGoToDefinition<CR>
 
 " config that applies to just this file
 " :h modeline
