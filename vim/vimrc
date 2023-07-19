@@ -122,8 +122,10 @@ let b:ale_fixers = {'rust': ['rustfmt', 'trim_whitespace', 'remove_trailing_line
 
 " K for popup rust docs
 autocmd FileType rust nnoremap K :ALEHover<CR>
-" ctrl ] to just to implementation
+" ctrl ] to jump to implementation
 autocmd FileType rust nnoremap <C-]> :ALEGoToDefinition<CR>
+" ctrl click to jump to implementation
+autocmd FileType rust nnoremap <C-LeftMouse> :ALEGoToDefinition<CR>
 " leader f for quick fix
 autocmd FileType rust nnoremap <Leader>f :ALECodeAction<CR>
 
