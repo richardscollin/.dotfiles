@@ -54,6 +54,8 @@ autocmd FileType cpp setlocal keywordprg=cppman
 autocmd FileType py setlocal keywordprg=pydoc
 
 set mouse=a
+set mousemodel=popup_setpos " for ale popup
+
 set wildmenu
 set nocursorline "decreases latency on large files
 
@@ -118,8 +120,12 @@ let g:rustfmt_autosave = 1
 let g:ale_linters = { 'rust': ['analyzer'] }
 let b:ale_fixers = {'rust': ['rustfmt', 'trim_whitespace', 'remove_trailing_lines']}
 
+" K for popup rust docs
 autocmd FileType rust nnoremap K :ALEHover<CR>
+" ctrl ] to just to implementation
 autocmd FileType rust nnoremap <C-]> :ALEGoToDefinition<CR>
+" leader f for quick fix
+autocmd FileType rust nnoremap <Leader>f :ALECodeAction<CR>
 
 " config that applies to just this file
 " :h modeline
