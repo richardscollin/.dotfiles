@@ -19,6 +19,7 @@ fi
 alias mk=make
 alias o=xdg-open
 alias sl=ls
+alias tree="exa --tree --git-ignore"
 alias whoowns="dpkg-query -S"
 alias whyinstalled="dpkg-query -S"
 alias v=vim
