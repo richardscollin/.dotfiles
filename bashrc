@@ -40,4 +40,5 @@ _sourceif \
 __git_complete g __git_main || true
 
 motd
+source <(rustup completions bash)
 times

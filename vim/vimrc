@@ -46,10 +46,11 @@ set wrap
 autocmd BufNewFile,BufNew,BufRead TODO,*.md,*.html,*.css,*.js,*.vue,*.rb,*.html.erb set shiftwidth=2 softtabstop=2
 
 "File specific settings
-
 autocmd BufNewFile,BufRead *.rs set filetype=rust
+
 autocmd BufNewFile,BufNew,BufRead *.c set colorcolumn=80
 autocmd FileType c,cpp setlocal equalprg=clang-format
+autocmd FileType rust setlocal equalprg=rustfmt
 autocmd FileType cpp setlocal keywordprg=cppman
 autocmd FileType py setlocal keywordprg=pydoc
 
@@ -128,6 +129,10 @@ autocmd FileType rust nnoremap <C-]> :ALEGoToDefinition<CR>
 autocmd FileType rust nnoremap <C-LeftMouse> :ALEGoToDefinition<CR>
 " leader f for quick fix
 autocmd FileType rust nnoremap <Leader>f :ALECodeAction<CR>
+
+" ctrl shift i to reformat file like vscode
+autocmd FileType rust inoremap <C-I> <ESC>mZHmY:%!rustfmt<CR>'Yzt`Z
+autocmd FileType rust nnoremap <C-I> mZHmY:%!rustfmt<CR>'Yzt`Z
 
 " config that applies to just this file
 " :h modeline
