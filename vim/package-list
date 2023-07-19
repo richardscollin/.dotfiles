@@ -1,8 +1,9 @@
-https://github.com/AndrewRadev/switch.vim
-https://github.com/bkad/CamelCaseMotion
-https://github.com/dense-analysis/ale
-https://github.com/mattn/emmet-vim
-https://github.com/noahfrederick/vim-skeleton
-https://github.com/tpope/vim-fugitive
-https://github.com/tpope/vim-surround
-https://github.com/tpope/vim-vinegar
+AndrewRadev/switch.vim
+bkad/CamelCaseMotion
+dense-analysis/ale
+mattn/emmet-vim
+noahfrederick/vim-skeleton
+rust-lang/rust.vim
+tpope/vim-fugitive
+tpope/vim-surround
+tpope/vim-vinegar

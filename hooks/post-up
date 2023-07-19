@@ -17,5 +17,4 @@ mklink $DOTFILES_DIR/git $HOME/.config
 mklink $DOTFILES_DIR/npm $HOME/.config
 mklink $DOTFILES_DIR/tmux $HOME/.config
 
-echo updating vim plugins
 ~/.vim/install.sh ~/.vim # install vim plugins

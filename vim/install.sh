@@ -1,14 +1,13 @@
 #!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+    echo "Invalid number of arguments"
+    echo "Typical usage: ~/.vim/install.sh ~/.vim"
+    exit 1
+fi
+
 startdir="$1/pack/my-plugins/start"
-mkdir -p $startdir ~/.local/state/vim
-
-git_clone_or_pull() {
-    dir=$startdir/$(basename "$1")
-    echo $dir && [ -d "$dir" ] && git -C "$dir" pull || git clone "$1" "$dir" &
-}
-
-cat "$1/package-list" | while read package ; do
-    git_clone_or_pull $package
-done
-wait
-echo parallel update repos complete
+echo "Updating vim plugins in ${startdir}"
+mkdir -p "${startdir}" ~/.local/state/vim
+cd "${startdir}"
+cat "$1/package-list" | xargs -n 1 -P 0 github-clone-or-pull

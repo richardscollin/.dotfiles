@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+    echo "invalid arguments. Usage: ${0} github_user/github_repo" 1>&2
+    exit 1
+fi
+
+repo_name=$(basename "$1")
+
+if [ -d "$repo_name" ]; then
+    echo "Updating $1"
+    git -C "$repo_name" pull --ff-only
+else
+    echo "Cloning $1"
+    git clone --depth=1 "https://github.com/$1" "${repo_name}"
+fi
