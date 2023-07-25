@@ -10,7 +10,8 @@ let g:ale_completion_enabled = 1
 let g:ale_floating_preview = 1
 let g:ale_floating_window_border = repeat([''], 8)
 
-let g:ale_lint_on_insert_leave = 'normal'
+let g:ale_lint_on_insert_leave = 1
+let g:ale_exclude_highlights = 1
 
 let g:ale_rust_cargo_use_clippy = 1
 let g:ale_linters_explicit = 1
@@ -45,5 +46,4 @@ inoremap <Tab> <C-R>=CleverTab()<CR>
 inoremap <S-Tab> <C-P>
 
 " rust abbreviations
-
 iab pl println!("{:?}",);<left><left>
