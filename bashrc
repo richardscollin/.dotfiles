@@ -7,15 +7,11 @@ PROMPT_COMMAND="__ps1"
 __ps1() { # modified from github.com/rwxrob/dot
   # K - black, Y - yellow, B - blue, M - magenta, Z - reset
   local K='\[\e[30m\]' Y='\[\e[33m\]' B='\[\e[34m\]' M='\[\e[35m\]' Z='\[\e[0m\]'
-  local dir="${PWD##*/}"
-  [[ $PWD = / ]] && dir=/
-  [[ $PWD = "$HOME" ]] && dir='~'
-
   GIT_PS1_SHOWCOLORHINTS=1 \
   GIT_PS1_SHOWDIRTYSTATE=1 \
   GIT_PS1_SHOWSTASHSTATE=1 \
   GIT_PS1_SHOWUNTRACKEDFILES=1 \
-  __git_ps1 "$K╔ $Y\u$K@$B\h$K:$M$dir$Z" "\n$K╚ $B\$$Z "
+  __git_ps1 "$K╔ $Y\u$K@$B\h$K:$M\w$Z" "\n$K╚ $B\$$Z "
 }
 
 shopt -s histappend # append to the history file, don't overwrite it

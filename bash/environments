@@ -13,6 +13,7 @@ export RUSTUP_HOME="$HOME/.config/rustup"
 
 declare -A PATHS=(
 [local]=$HOME/bin
+[misc-python]=$HOME/.local/bin
 [rust]=$HOME/.config/cargo/bin
 )
 IFS=:

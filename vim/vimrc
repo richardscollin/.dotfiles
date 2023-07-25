@@ -50,7 +50,7 @@ autocmd BufNewFile,BufRead *.rs set filetype=rust
 
 autocmd BufNewFile,BufNew,BufRead *.c set colorcolumn=80
 autocmd FileType c,cpp setlocal equalprg=clang-format
-autocmd FileType rust setlocal equalprg=rustfmt
+" autocmd FileType rust setlocal equalprg=rustfmt
 autocmd FileType cpp setlocal keywordprg=cppman
 autocmd FileType py setlocal keywordprg=pydoc
 
@@ -104,35 +104,10 @@ if has("xterm_clipboard")
     set clipboard=unnamedplus
 endif
 
-" set completeopt=menu,menuone,preview,noselect,noinsert
-set completeopt=menu,menuone,popup,noselect,noinsert
+" styling
+set bg=dark " manually set background color to dark; not automatically detected in tmux
 
-set omnifunc=ale#completion#OmniFunc
-let g:ale_enabled = 1
-let g:ale_completion_enabled = 1
-
-" displat rust information in floating window
-let g:ale_floating_preview = 1
-let g:ale_floating_window_border = repeat([''], 8)
-
-let g:ale_linters_explicit = 1
-let g:ale_fixers_explicit = 1
-let g:rustfmt_autosave = 1
-let g:ale_linters = { 'rust': ['analyzer'] }
-let b:ale_fixers = {'rust': ['rustfmt', 'trim_whitespace', 'remove_trailing_lines']}
-
-" K for popup rust docs
-autocmd FileType rust nnoremap K :ALEHover<CR>
-" ctrl ] to jump to implementation
-autocmd FileType rust nnoremap <C-]> :ALEGoToDefinition<CR>
-" ctrl click to jump to implementation
-autocmd FileType rust nnoremap <C-LeftMouse> :ALEGoToDefinition<CR>
-" leader f for quick fix
-autocmd FileType rust nnoremap <Leader>f :ALECodeAction<CR>
-
-" ctrl shift i to reformat file like vscode
-autocmd FileType rust inoremap <C-I> <ESC>mZHmY:%!rustfmt<CR>'Yzt`Z
-autocmd FileType rust nnoremap <C-I> mZHmY:%!rustfmt<CR>'Yzt`Z
+autocmd FileType rust source /home/collin/.config/dotfiles/vim/rust.vim
 
 " config that applies to just this file
 " :h modeline
