@@ -1,9 +1,8 @@
 AndrewRadev/switch.vim
 bkad/CamelCaseMotion
-dense-analysis/ale
+chriskempson/base16-vim
 mattn/emmet-vim
 noahfrederick/vim-skeleton
-rust-lang/rust.vim
 tpope/vim-fugitive
 tpope/vim-surround
 tpope/vim-vinegar

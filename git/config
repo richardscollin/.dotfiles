@@ -5,11 +5,12 @@
 	ch   = checkout
 	ci   = commit
 	co   = checkout
-	clone= clone --depth=1
+	cl   = clone --depth=1
 	d    = diff
 	dc   = diff --cached
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	ol   = log --oneline
+        log  = "log --format='%C(auto) %aN %h %d %s'"
         lg   = "log --format='%C(auto) %aN %h %d %s'"
 	pa   = !sh -c 'git push github && git push dobby'
 	ph   = push

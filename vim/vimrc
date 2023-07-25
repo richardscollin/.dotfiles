@@ -14,9 +14,21 @@ let b:switch_custom_definitions = [
 "CamelCase Motion settings
 " shift-w, shift-b, shift-e
 " to move by camelCase word
-map <S-W> <Plug>CamelCaseMotion_w
-map <S-B> <Plug>CamelCaseMotion_b
-map <S-E> <Plug>CamelCaseMotion_e
+" map <S-W> <Plug>CamelCaseMotion_w
+" map <S-B> <Plug>CamelCaseMotion_b
+" map <S-E> <Plug>CamelCaseMotion_e
+
+
+"Default to CamelCase Motion settings
+"try this out and see if I like it
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+map <silent> ge <Plug>CamelCaseMotion_ge
+sunmap w
+sunmap b
+sunmap e
+sunmap ge
 
 function! s:check_back_space() abort
     let col = col('.') - 1
@@ -50,7 +62,6 @@ autocmd BufNewFile,BufRead *.rs set filetype=rust
 
 autocmd BufNewFile,BufNew,BufRead *.c set colorcolumn=80
 autocmd FileType c,cpp setlocal equalprg=clang-format
-" autocmd FileType rust setlocal equalprg=rustfmt
 autocmd FileType cpp setlocal keywordprg=cppman
 autocmd FileType py setlocal keywordprg=pydoc
 
@@ -73,7 +84,6 @@ set number
 set encoding=utf-8
 set laststatus=2
 
-"
 " Custom mappings
 nnoremap  ; :
 inoremap jk <esc>
@@ -106,7 +116,11 @@ endif
 
 " styling
 set bg=dark " manually set background color to dark; not automatically detected in tmux
+colorscheme collin
 
+" install with debian for more stable version
+" sudo apt-get install vim-ale
+packadd! ale
 autocmd FileType rust source /home/collin/.config/dotfiles/vim/rust.vim
 
 " config that applies to just this file

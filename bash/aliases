@@ -7,26 +7,12 @@ alias grep='grep --color=auto'
 alias histsync="history -a; history -r"
 alias hs="history -a; history -r"
 alias info="info --vi-keys"
-
-if [[ "$OSTYPE" == "linux-gnu" ]];then
-    alias l='exa -1'
-    alias ls='exa'
-    alias ll='exa --long --all'
-    alias la='exa --all'
-elif [[ "$OSTYPE" == "darwin" ]]; then
-    alias ls="ls -G" # mac uses bsd ls which requires -G for colors instead of --colors
-fi
-
 alias mk=make
 alias o=xdg-open
 alias sl=ls
 alias tree="exa --tree --git-ignore"
-alias whoowns="dpkg-query -S"
-alias whyinstalled="dpkg-query -S"
 alias v=vim
 alias vimrc="vim ~/.vim/vimrc"
-
-alias mktransparent="sh -c 'xprop -f _NET_WM_WINDOW_OPACITY 32c -set _NET_WM_WINDOW_OPACITY $(printf 0x%x $((0xffffffff * 80 / 100)))'"
 
 function todo {
     if [[ "$1" == "-p" ]]; then # -p for previous day
@@ -36,25 +22,23 @@ function todo {
     fi
 }
 
-function journal {
-    if [[ "$1" == "-p" ]]; then # -p for previous day
-        vim ~/Documents/journal/$(date --date yesterday +%F).md
-    else
-        vim ~/Documents/journal/$(date +%F).md
-    fi
-}
+if [[ "$OSTYPE" == "linux-gnu" ]];then
+    alias l='exa -1'
+    alias ls='exa'
+    alias ll='exa --long --all'
+    alias la='exa --all'
 
-cd() {
-  case "$*" in
-    '...')
-      local dir
-      dir="$(git rev-parse --show-toplevel 2>/dev/null)"
-      if [[ $? -ne 0 ]]; then
-        printf '%s\n' "${FUNCNAME[0]}: not inside a git repository"
-        return 1
-      fi
-      set -- "$dir"
-    ;;
-  esac
-  builtin cd "$@" && ls # run ls after cd'ing
-}
+    if [ -f "/etc/debian_version" ]; then
+        # debian package manager aliases
+        alias a=apt
+        alias get="sudo apt-get install"
+        alias remove="sudo apt-get remove"
+        alias uninstall="sudo apt-get remove"
+        alias search="apt-cache search"
+        alias ownswhat="dpkg --listfiles"
+        alias whoowns="dpkg-query -S"
+    fi
+
+elif [[ "$OSTYPE" == "darwin" ]]; then
+    alias ls="ls -G" # mac uses bsd ls which requires -G for colors instead of --colors
+fi
