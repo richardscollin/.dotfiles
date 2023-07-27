@@ -35,6 +35,16 @@ _sourceif \
     "$NVM_DIR/bash_completion"
 __git_complete g __git_main || true
 
+function command_not_found_handle {
+    if [ -x /usr/lib/command-not-found ]; then
+        /usr/lib/command-not-found -- "$1"
+        return $?
+    else
+        printf "%s: command not found\n" "$1" >&2
+        return 127
+    fi
+}
+
 motd
 source <(rustup completions bash)
 times
