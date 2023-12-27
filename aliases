@@ -1,0 +1,30 @@
+# bash fish compatiable abbr 
+# function abbr() { alias "$1"="$2"; }
+abbr c cargo
+abbr chmox "chmod +x"
+abbr copy "xclip -selection clipboard"
+abbr d docker
+abbr fe e ~/.config/fish/config.fish
+abbr g git
+abbr grep 'grep --color=auto'
+abbr info "info --vi-keys"
+abbr l ls
+abbr m make
+abbr o xdg-open
+abbr rust evcxr
+abbr sl ls
+abbr t tmux
+
+# debian package manager aliases
+abbr get "sudo apt-get install"
+abbr remove "sudo apt-get remove"
+abbr search "apt-cache search"
+abbr uninstall "sudo apt-get remove"
+abbr update "sudo apt-get update"
+abbr upgrade "sudo apt-get upgrade"
+abbr ownswhat "dpkg --listfiles"
+abbr whoowns "dpkg-query -S"
+
+
+# mac aliases
+# alias ls="ls -G" # mac uses bsd ls which requires -G for colors instead of --colors

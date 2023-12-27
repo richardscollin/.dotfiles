@@ -1,0 +1,4 @@
+export CFLAGS="-Wall -g"
+export EDITOR="nvim"
+export LESSHISTFILE="/dev/null"       # prevent creation of ~/.lesshst
+export MANPAGER="less -R -Dd+y -Du+b" # add a hint of color to man pages; works well with my theme

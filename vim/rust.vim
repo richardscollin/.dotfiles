@@ -6,9 +6,14 @@ set omnifunc=ale#completion#OmniFunc
 let g:ale_enabled = 1
 let g:ale_completion_enabled = 1
 
-" displat rust information in floating window
+" display rust information in floating window
 let g:ale_floating_preview = 1
 let g:ale_floating_window_border = repeat([''], 8)
+
+" use quickfix window
+let g:ale_set_quickfix = 1
+" let g:ale_keep_list_window_open = 1
+let g:ale_open_list = 1
 
 let g:ale_lint_on_insert_leave = 1
 let g:ale_exclude_highlights = 1
@@ -47,3 +52,4 @@ inoremap <S-Tab> <C-P>
 
 " rust abbreviations
 iab pl println!("{:?}",);<left><left>
+iab test #[cfg(test)]<cr>mod tests {<cr>use super::*;<cr><cr>#[test]<cr>fn it_works() {<cr>assert_eq!(1, 1);<cr>}<cr>}<cr>

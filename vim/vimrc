@@ -14,21 +14,21 @@ let b:switch_custom_definitions = [
 "CamelCase Motion settings
 " shift-w, shift-b, shift-e
 " to move by camelCase word
-" map <S-W> <Plug>CamelCaseMotion_w
-" map <S-B> <Plug>CamelCaseMotion_b
-" map <S-E> <Plug>CamelCaseMotion_e
+map <S-W> <Plug>CamelCaseMotion_w
+map <S-B> <Plug>CamelCaseMotion_b
+map <S-E> <Plug>CamelCaseMotion_e
 
 
 "Default to CamelCase Motion settings
 "try this out and see if I like it
-map <silent> w <Plug>CamelCaseMotion_w
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-map <silent> ge <Plug>CamelCaseMotion_ge
-sunmap w
-sunmap b
-sunmap e
-sunmap ge
+" map <silent> w <Plug>CamelCaseMotion_w
+" map <silent> b <Plug>CamelCaseMotion_b
+" map <silent> e <Plug>CamelCaseMotion_e
+" map <silent> ge <Plug>CamelCaseMotion_ge
+" sunmap w
+" sunmap b
+" sunmap e
+" sunmap ge
 
 function! s:check_back_space() abort
     let col = col('.') - 1
@@ -55,6 +55,7 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set wrap
+set scrolloff=5
 autocmd BufNewFile,BufNew,BufRead TODO,*.md,*.html,*.css,*.js,*.vue,*.rb,*.html.erb set shiftwidth=2 softtabstop=2
 
 "File specific settings
@@ -77,7 +78,6 @@ set spellcapcheck= " disable capitalization error on first letter of string
 
 syntax on
 set nojoinspaces
-set nowrap
 set number
 "set relativenumber
 
@@ -108,7 +108,7 @@ cnoremap q1 q!
 set tags=./tags,tags,~/.vim/ctags/tags,.git/tags
 
 "XDG_STATE_HOME viminfo
-set viminfofile=~/.local/state/vim/viminfo
+" set viminfofile=~/.local/state/vim/viminfo
 
 if has("xterm_clipboard")
     set clipboard=unnamedplus
