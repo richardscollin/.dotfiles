@@ -4,10 +4,11 @@ abbr() { alias "$1"="$2"; }
 add_path() { export PATH="$PATH:$1"; }
 sourceif() { [[ -r "$1" ]] && source "$@"; }
 
-sourceif ~/.aliases
 sourceif ~/.env
 sourceif ~/.env.personal
 sourceif ~/.env.work
+
+sourceif ~/.aliases
 
 __git_ps1() { PS1="$1$2"; } # fallback if not sourced
 sourceif /usr/lib/git-core/git-sh-prompt

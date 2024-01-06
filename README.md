@@ -1,27 +1,31 @@
 # dotfiles
 
-My configuration files. I like to frequently change how I have these setup.
-
-Previously, I was trying to move everything to make use of xdg-user dirs. Now I have given up on that goal and will just stick with the default location in most cases.
-
-## Setup
+I manage my dotfiles using [rcm](http://thoughtbot.github.io/rcm/).
 
 ```
-git clone git@github.com:richardscollin/dotfiles.git ~/.config/dotfiles
+git clone git@github.com:richardscollin/.dotfiles.git
 
-# with rcm
+# install dotfiles with rcm
 sudo apt-get install rcm
-RCRC=$HOME/.config/dotfiles/rcrc rcup -v
+RCRC=$HOME/.dotfiles/rcrc rcup -v
+
+# install with exported script
+./bin/install.sh
+
+# install individual config
+rcup -v vim
+
+# dump the rcm init script to a self contained script
+rcup -B 0 -g | sed "s|$HOME|\$HOME|g" > bin/install.sh
 ```
 
 ### Gnome Config Settings
 
-- Disable Capslock
+```
+# Swap capslock to ctrl
+gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier']"
+```
 
 ### Mac Keyboard
 
 - install <https://github.com/free5lot/hid-apple-patched>
-
-## Resources
-
-- [rcm](http://thoughtbot.github.io/rcm/)

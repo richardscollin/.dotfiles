@@ -4,6 +4,7 @@ abbr c cargo
 abbr chmox "chmod +x"
 abbr copy "xclip -selection clipboard"
 abbr d docker
+[ ! -x /usr/bin/e ] && abbr e "$EDITOR" # if e-wrapper is not installed then alias e to $EDITOR
 abbr fe e ~/.config/fish/config.fish
 abbr g git
 abbr grep 'grep --color=auto'
@@ -11,6 +12,7 @@ abbr info "info --vi-keys"
 abbr l ls
 abbr m make
 abbr o xdg-open
+abbr ru rustup
 abbr rust evcxr
 abbr sl ls
 abbr t tmux
@@ -24,7 +26,6 @@ abbr update "sudo apt-get update"
 abbr upgrade "sudo apt-get upgrade"
 abbr ownswhat "dpkg --listfiles"
 abbr whoowns "dpkg-query -S"
-
 
 # mac aliases
 # alias ls="ls -G" # mac uses bsd ls which requires -G for colors instead of --colors
