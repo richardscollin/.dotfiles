@@ -6,6 +6,8 @@ sourceif() { [[ -r "$1" ]] && source "$@"; }
 
 sourceif ~/.aliases
 sourceif ~/.env
+sourceif ~/.env.personal
+sourceif ~/.env.work
 
 __git_ps1() { PS1="$1$2"; } # fallback if not sourced
 sourceif /usr/lib/git-core/git-sh-prompt
