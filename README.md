@@ -2,7 +2,7 @@
 
 I manage my dotfiles using [rcm](http://thoughtbot.github.io/rcm/).
 
-```
+```bash
 git clone git@github.com:richardscollin/.dotfiles.git
 
 # install dotfiles with rcm
@@ -21,7 +21,7 @@ rcup -B 0 -g | sed "s|$HOME|\$HOME|g" > bin/install.sh
 
 ### Gnome Config Settings
 
-```
+```bash
 # Swap capslock to ctrl
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier']"
 ```

@@ -5,6 +5,8 @@ if status is-interactive
 
     source ~/.aliases
 
+    zoxide init fish | source
+
     fish_add_path ~/bin
     fish_add_path ~/.local/bin
 

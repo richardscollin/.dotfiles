@@ -1,0 +1,17 @@
+#!/bin/bash
+# inspired by https://youtu.be/l_TTxc0AcCw
+
+Z_RESULT=$(zoxide query "${1}")
+SESSION=$(basename "${Z_RESULT}")
+
+if [ -z "${TMUX}" ]; then
+	tmux new-session -A -c "${Z_RESULT}" -s "${SESSION}"
+else
+	if ! tmux has-session -t "${SESSION}"; then
+		tmux new-session -d -c "${Z_RESULT}" -s "${SESSION}"
+	fi
+
+	tmux switch-client -t "${SESSION}"
+fi
+
+# get completion from: tmux list-sessions -F '#S'
