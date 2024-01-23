@@ -8,6 +8,7 @@ abbr d docker
 
 abbr ea "e ~/.aliases && source ~/.config/fish/config.fish"
 abbr ef "e ~/.config/fish/config.fish && source ~/.config/fish/config.fish"
+abbr eg "e ~/.gitconfig"
 abbr et "e ~/.tmux.conf && tmux source-file ~/.tmux.conf"
 abbr ev "e ~/.config/nvim/"
 
