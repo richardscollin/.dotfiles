@@ -14,8 +14,12 @@ abbr ev "e ~/.config/nvim/"
 
 abbr ga git add
 abbr gc git commit -v
-abbr gs git status
 abbr gd git diff
+abbr gph git push
+abbr gpl git pull
+abbr gps git push
+abbr gs git status
+abbr gst git status
 
 abbr g git
 abbr grep 'grep --color=auto'
