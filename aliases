@@ -27,7 +27,7 @@ abbr info "info --vi-keys"
 abbr l ls
 abbr m make
 abbr o xdg-open
-abbr ru rustup
+abbr ru rustup update
 abbr rust evcxr
 abbr sl ls
 command -v t >/dev/null 2>&1 || abbr t tmux
