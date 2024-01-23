@@ -6,9 +6,15 @@ abbr copy "xclip -selection clipboard"
 abbr d docker
 [ ! -x /usr/bin/e ] && abbr e "$EDITOR" # if e-wrapper is not installed then alias e to $EDITOR
 
+abbr ea "e ~/.aliases && source ~/.config/fish/config.fish"
 abbr ef "e ~/.config/fish/config.fish && source ~/.config/fish/config.fish"
 abbr et "e ~/.tmux.conf && tmux source-file ~/.tmux.conf"
 abbr ev "e ~/.config/nvim/"
+
+abbr ga git add
+abbr gc git commit -v
+abbr gs git status
+abbr gd git diff
 
 abbr g git
 abbr grep 'grep --color=auto'
@@ -19,7 +25,7 @@ abbr o xdg-open
 abbr ru rustup
 abbr rust evcxr
 abbr sl ls
-# abbr t tmux
+command -v t >/dev/null 2>&1 || abbr t tmux
 
 # debian package manager aliases
 abbr get "sudo apt-get install"

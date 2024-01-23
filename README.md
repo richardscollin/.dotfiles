@@ -22,8 +22,13 @@ rcup -B 0 -g | sed "s|$HOME|\$HOME|g" > bin/install.sh
 ### Gnome Config Settings
 
 ```bash
-# Swap capslock to ctrl
-gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier']"
+
+# keymapping:
+# capslock -> super (pressing capslock inputs super)
+# left win -> ctrl
+# right alt -> ctrl
+# right ctrl -> alt
+gsettings set org.gnome.desktop.input-sources xkb-options "['caps:super', 'ctrl:rctrl_ralt', 'ctrl:ralt_rctrl', 'altwin:ctrl_win']"
 ```
 
 ### Mac Keyboard
