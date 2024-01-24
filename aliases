@@ -7,10 +7,11 @@ abbr d docker
 [ ! -x /usr/bin/e ] && abbr e "$EDITOR" # if e-wrapper is not installed then alias e to $EDITOR
 
 abbr ea "e ~/.aliases && source ~/.config/fish/config.fish"
+abbr eaw "e ~/.aliases.work && source ~/.config/fish/config.fish"
+abbr ee "e ~/.env && source ~/.config/fish/config.fish"
 abbr ef "e ~/.config/fish/config.fish && source ~/.config/fish/config.fish"
-abbr eg "e ~/.gitconfig"
-abbr et "e ~/.tmux.conf && tmux source-file ~/.tmux.conf"
-abbr ev "e ~/.config/nvim/"
+abbr eg "e ~/.config/git/config"
+abbr et "e ~/.config/tmux/tmux.conf && tmux source-file ~/.config/tmux/tmux.conf"
 
 abbr ga git add
 abbr gc git commit -v
@@ -20,6 +21,9 @@ abbr gpl git pull
 abbr gps git push
 abbr gs git status
 abbr gst git status
+
+abbr ta tmux attach
+abbr tls tmux list
 
 abbr g git
 abbr grep 'grep --color=auto'

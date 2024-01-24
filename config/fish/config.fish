@@ -1,14 +1,17 @@
 if status is-interactive
-    source ~/.env
-    source ~/.env.personal
-    source ~/.env.work
+    function sourceif
+        [ -r "$argv[1]" ] && source "$argv"
+    end
 
-    source ~/.aliases
+    sourceif ~/.env
+    sourceif ~/.env.personal
+    sourceif ~/.env.work
+
+    sourceif ~/.aliases
+    sourceif ~/.aliases.work
 
     zoxide init fish | source
 
     fish_add_path ~/bin
     fish_add_path ~/.local/bin
-
-    motd
 end
