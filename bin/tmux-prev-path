@@ -21,7 +21,7 @@ if __name__ == "__main__":
         print("Error: not connected to a tmux session", file=sys.stderr)
         sys.exit(1)
 
-    paths = subprocess.run(["tmux", "capture-pane", "-p", "-E", "-100"], capture_output=True, text=True).stdout
+    paths = subprocess.run(["tmux", "capture-pane", "-j", "-p", "-E", "-100"], capture_output=True, text=True).stdout
     paths = "\n".join(filter(not_restricted, set(extract_paths_from_text(paths))))
 
     result = subprocess.run(["fzf-tmux", "--no-sort"], input=paths, capture_output=True, text=True)
