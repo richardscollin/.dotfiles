@@ -6,6 +6,7 @@
 	ci   = commit
 	cl   = clone
 	co   = checkout
+	cv   = commit -v
 	d    = diff
 	dc   = diff --cached
 	delete-remote-br = !sh -c 'git push origin :$1' -
@@ -21,6 +22,8 @@
 	s    = status --ignored
 	st   = status --ignored
 	sw   = switch
+	re   = rebase
+	wt   = worktree
 [color]
 	ui = auto
 [core]
