@@ -24,6 +24,10 @@
 	sw   = switch
 	re   = rebase
 	wt   = "!f() { if [ $# -eq 0 ]; then git worktree list ; else git worktree $@ ; fi }; f"
+[bash]
+	showDirtyState = true
+	showInformativeStatus = true
+	showUntrackedFiles = true
 [color]
 	ui = auto
 [core]

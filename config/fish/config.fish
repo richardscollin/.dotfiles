@@ -14,10 +14,8 @@ if status is-interactive
         zoxide init fish | source
     end
 
-    if command -q starship
-        starship init fish | source
-    end
-
     fish_add_path ~/bin
     fish_add_path ~/.local/bin
+
+    fish_config prompt choose astronaut
 end
