@@ -1,9 +1,30 @@
 modmap:
-  - name: main remaps
+  - name: main remaps firefox
+    remap:
+      CapsLock:
+        held: super_l
+        alone: F6
+        alone_timeout_millis: 200
+      Super_L: leftalt
+      Alt_L: leftctrl
+    application:
+      only: [Firefox-esr]
+
+  - name: main remaps all
     remap:
       CapsLock:
         held: super_l
         alone: esc
-        alone_timeout_millis: 150
+        alone_timeout_millis: 200
       Super_L: leftalt
       Alt_L: leftctrl
+    application:
+      not: [Firefox-esr]
+
+keymap:
+  - name: main remaps firefox keymap
+    remap:
+      C-j: alt-j
+      C-k: alt-k
+    application:
+      only: [Firefox-esr, Gnome-terminal]
