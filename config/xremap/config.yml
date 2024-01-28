@@ -1,0 +1,9 @@
+modmap:
+  - name: main remaps
+    remap:
+      CapsLock:
+        held: super_l
+        alone: esc
+        alone_timeout_millis: 150
+      Super_L: leftalt
+      Alt_L: leftctrl
