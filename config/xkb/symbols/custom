@@ -1,0 +1,6 @@
+partial modifier_keys
+xkb_symbols "alt_ctrl_win_alt" {
+    key <LALT> { [ Control_L, Control_L ] };
+    key <LWIN> { [ Alt_L, Meta_L ] };
+    modifier_map Control { <LALT> };
+};

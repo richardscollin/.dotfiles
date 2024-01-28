@@ -14,6 +14,7 @@ abbr eaw "e ~/.aliases.work && source ~/.config/fish/config.fish"
 abbr ee "e ~/.env && source ~/.config/fish/config.fish"
 abbr ef "e ~/.config/fish/config.fish && source ~/.config/fish/config.fish"
 abbr eg "e ~/.config/git/config"
+abbr er "e ~/.dotfiles/README.md"
 abbr et "e ~/.config/tmux/tmux.conf && tmux source-file ~/.config/tmux/tmux.conf"
 
 abbr ga git add
