@@ -23,7 +23,7 @@
 	st   = status --ignored
 	sw   = switch
 	re   = rebase
-	wt   = worktree
+	wt   = "!f() { if [ $# -eq 0 ]; then git worktree list ; else git worktree $@ ; fi }; f"
 [color]
 	ui = auto
 [core]

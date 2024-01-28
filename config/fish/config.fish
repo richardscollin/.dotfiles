@@ -10,7 +10,13 @@ if status is-interactive
     sourceif ~/.aliases
     sourceif ~/.aliases.work
 
-    zoxide init fish | source
+    if command -q zoxide
+        zoxide init fish | source
+    end
+
+    if command -q starship
+        starship init fish | source
+    end
 
     fish_add_path ~/bin
     fish_add_path ~/.local/bin

@@ -1,5 +1,8 @@
 # bash fish compatiable abbr 
 # function abbr() { alias "$1"="$2"; }
+
+alias ...='cd $(git rev-parse --show-toplevel)'
+
 abbr c cargo
 abbr chmox "chmod +x"
 abbr copy "xclip -selection clipboard"
@@ -14,6 +17,7 @@ abbr eg "e ~/.config/git/config"
 abbr et "e ~/.config/tmux/tmux.conf && tmux source-file ~/.config/tmux/tmux.conf"
 
 abbr ga git add
+abbr gbr git branch
 abbr gc git commit -v
 abbr gd git diff
 abbr gph git push

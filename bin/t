@@ -82,15 +82,9 @@ get_fzf_find_binding() {
 FIND_BIND=$(get_fzf_find_binding)
 
 get_sessions_by_mru() {
-	if [ "$T_RUNTYPE" == "attached" ]; then
-		CURRENT_SID=$(tmux display-message -p "#{session_id}")
-	else
-		CURRENT_SID=""
-	fi
 	tmux list-sessions \
-		-f "#{!=:#{session_id},$CURRENT_SID}" \
-		-F '#{session_last_attached} #{session_name}' \
-		| sort --numeric-sort --reverse | awk '{print $2}; END {print "———"}'
+		-F '#{session_last_attached} #{session_name}' |
+		sort --numeric-sort --reverse | awk '{print $2}; END {print "———"}'
 }
 
 get_zoxide_results() {
@@ -108,11 +102,11 @@ get_fzf_results() {
 			get_zoxide_results
 			;;
 		*)
-			get_sessions_by_mru && get_zoxide_results # default shows both
+			get_sessions_by_mru # default shows sessions only
 			;;
 		esac
 	else
-		get_zoxide_results # only show zoxide results when outside tmux
+		get_sessions_by_mru # default shows sessions only
 	fi
 }
 
@@ -216,7 +210,7 @@ if [ "$RESULT" = "" ]; then # no result
 fi
 
 RESULT=$(echo "$RESULT" | sed -e "s|^~/|$HOME/|") # get real home path back
-zoxide add "$RESULT" &>/dev/null # add to zoxide database
+zoxide add "$RESULT" &>/dev/null                  # add to zoxide database
 
 if [[ $RESULT != /* ]]; then # not folder path from zoxide result
 	SESSION_NAME=$RESULT
@@ -230,7 +224,7 @@ elif [[ $T_SESSION_USE_GIT_ROOT == 'true' ]]; then
 
 		# git worktree
 		GIT_WORKTREE_ROOT=$(git -C $RESULT rev-parse --git-common-dir 2>/dev/null) && echo $GIT_WORKTREE_ROOT >/dev/null
-		if [[ $? -eq 0 ]] && [[ ! $GIT_WORKTREE_ROOT =~ ^(\.\./)*\.git$ ]]; then # is inside git worktree
+		if [[ $? -eq 0 ]] && [[ ! $GIT_WORKTREE_ROOT =~ ^(\.\./)*\.git$ ]]; then       # is inside git worktree
 			GIT_WORKTREE_ROOT=$(echo $GIT_WORKTREE_ROOT | sed -E 's/(\/.git|\/.bare)$//') # remove .git or .bare suffix
 			BASENAME=$(basename $GIT_WORKTREE_ROOT)
 			RELATIVE_PATH=${RESULT#$GIT_WORKTREE_ROOT}

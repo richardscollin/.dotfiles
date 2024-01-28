@@ -29,6 +29,14 @@ rcup -B 0 -g | sed "s|$HOME|\$HOME|g" > bin/install.sh
 # right alt -> ctrl
 # right ctrl -> alt
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:super', 'ctrl:rctrl_ralt', 'ctrl:ralt_rctrl', 'altwin:ctrl_win']"
+
+# use both super-j and super-k to switch between maximized and non-maximized window
+gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "['<Super>k', '<Super>j']"
+
+# I like being able to super-h and super-l to snap windows, but sometimes still like to be able to do super left/right
+# may need to manually disable any existing keybindings that already use super-l and super-h
+gsettings set org.gnome.mutter.keybindings toggle-tiled-right "['<Super>Right', '<Super>l']"
+gsettings set org.gnome.mutter.keybindings toggle-tiled-left "['<Super>Left', '<Super>h']"
 ```
 
 ### Mac Keyboard
