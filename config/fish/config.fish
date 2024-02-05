@@ -18,9 +18,4 @@ if status is-interactive
     fish_add_path ~/.local/bin
 
     fish_config prompt choose astronaut
-
-    function fish_right_prompt -d "Write out the right prompt"
-        date '+%r'
-    end
-
 end
