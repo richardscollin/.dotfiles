@@ -34,8 +34,8 @@ abbr g git
 abbr grep 'grep --color=auto'
 abbr info "info --vi-keys"
 abbr l ls
-abbr nb newsboat
 abbr m make
+abbr nb newsboat
 abbr o xdg-open
 abbr ru rustup update
 abbr rust evcxr
