@@ -39,3 +39,23 @@ gsettings set org.gnome.mutter.keybindings toggle-tiled-left "['<Super>Left', '<
 ### Mac Keyboard
 
 - install <https://github.com/free5lot/hid-apple-patched>
+
+
+### e vs. vi
+
+On my local development machine, I've gotten into the habit of typing
+`e` to editor my text files through the e-wrapper program. However I often
+also edit files on other machines. I want the commands I type to
+also work on other machines. e-wrapper also has the nice feature it will
+convert the line number after a file `/path/to/file:25` into a way understood
+by the editor: `vim /path/to/file +25`. It's convenient to copy and paste
+output from logs directly with `e-wrapper`.
+
+I can switch back to using the vi command with my own custom editors by making
+use of Debian's update alternatives feature.
+
+### Debian Update Alternatives
+
+```bash
+sudo update-alternatives --install /usr/bin/vi vi /home/collin/bin/nvim 100
+```

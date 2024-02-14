@@ -21,6 +21,7 @@ abbr ga git add
 abbr gbr git branch
 abbr gc git commit -v
 abbr gd git diff
+abbr gdc git diff --cached
 abbr gph git push
 abbr gpl git pull
 abbr gps git push
