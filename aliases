@@ -14,22 +14,9 @@ abbr eaw "e ~/.aliases.work && source ~/.config/fish/config.fish"
 abbr ee "e ~/.env && source ~/.config/fish/config.fish"
 abbr ef "e ~/.config/fish/config.fish && source ~/.config/fish/config.fish"
 abbr eg "e ~/.config/git/config"
-abbr er "e ~/.dotfiles/README.md"
 abbr et "e ~/.config/tmux/tmux.conf && tmux source-file ~/.config/tmux/tmux.conf"
 
-abbr ga git add
-abbr gbr git branch
-abbr gc git commit -v
-abbr gd git diff
-abbr gdc git diff --cached
-abbr gph git push
-abbr gpl git pull
-abbr gps git push
-abbr gs git status
-abbr gst git status
-
-abbr ta tmux attach
-abbr tls tmux list
+abbr perf_allow "echo -1 | sudo tee /proc/sys/kernel/perf_event_paranoid"
 
 abbr g git
 abbr grep 'grep --color=auto'
@@ -48,8 +35,8 @@ abbr get "sudo apt-get install"
 abbr remove "sudo apt-get remove"
 abbr search "apt-cache search"
 abbr uninstall "sudo apt-get remove"
-abbr update "sudo apt-get update"
-abbr upgrade "sudo apt-get upgrade"
+abbr update "sudo apt-get update && sudo apt-get upgrade"
+
 abbr ownswhat "dpkg --listfiles"
 abbr whoowns "dpkg-query -S"
 

@@ -59,3 +59,29 @@ use of Debian's update alternatives feature.
 ```bash
 sudo update-alternatives --install /usr/bin/vi vi /home/collin/bin/nvim 100
 ```
+
+
+
+
+## Misc
+
+Want to do this later: <https://forums.lenovo.com/t5/Displays-Options-and-Accessories/External-Thinkpad-Keyboard-KU-1255-switch-Fn-Ctrl-on-non-thinkpad-PC/m-p/2192639?page=3#3954879>
+
+
+Stow
+====
+```
+./configure --prefix=/usr/local/stow/tmux-3.4
+make
+make install
+cd /usr/local/stow
+sudo stow tmux-3.4
+
+# remove
+sudo stow --delete tmux-3.4
+```
+
+
+
+
+

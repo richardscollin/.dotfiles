@@ -1,0 +1,8 @@
+#!/usr/bin/fish
+read -p 'set_color green; echo -n " search "; set_color normal' X
+
+if set -q X; and test -n "$X"
+    firefox --new-tab "https://duckduckgo.com?q=\\ $X"
+else
+    exit 0
+end

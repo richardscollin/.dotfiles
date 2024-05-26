@@ -1,18 +1,17 @@
 [alias]
 	a       = add
-	br      = branch
+	b       = branch
 	c       = commit
-	cl      = clone
 	co      = checkout
 	d       = diff
 	dc      = diff --cached
 	delete-remote-br = !sh -c 'git push origin :$1' -
 	hist    = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-	l       = log --graph --stat --all
+	l       = log --graph --stat
+	la      = log --graph --stat --all
 	last    = for-each-ref 'refs/heads' 'refs/remotes/*/[^H][^E][^A][^D]*' --sort=-committerdate --format='%(HEAD) %(refname:short) - (%(color:green)%(committerdate:relative)%(color:reset)) - %(color:yellow)%(authorname)%(color:reset) - %(contents:subject)'
 	lg      = "log --format='%C(auto) %aN %h %d %s'"
 	ol      = log --oneline
-	ph      = push
 	pl      = pull
 	ps      = push
 	s       = status --ignored
@@ -34,6 +33,7 @@
 [core]
 	autocrlf = input
 [diff]
+	colorMoved = default
 	tool = meld
 [diff "odf"]
 	binary = true
@@ -49,6 +49,8 @@
 	defaultBranch = master
 [log]
 	mailmap = true
+[merge]
+	conflictstyle = diff3
 [pager]
 	branch = false
 [pull]
@@ -56,3 +58,5 @@
 [push]
 	default = simple
 	autoSetupRemote = true
+[tag]
+	sort = -version:refname
