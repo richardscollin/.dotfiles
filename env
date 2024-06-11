@@ -1,9 +1,8 @@
 export BROWSER="firefox"
 export EDITOR="nvim"
+export FZF_DEFAULT_OPTS="--layout=reverse"
 export LESSHISTFILE="/dev/null"       # prevent creation of ~/.lesshst
 export MANPAGER="less -R -Dd+y -Du+b" # add a hint of color to man pages; works well with my theme
-
-export FZF_DEFAULT_OPTS="--layout=reverse"
 
 export CARGO_HOME="$HOME/.config/cargo"
 export RUSTUP_HOME="$HOME/.config/rustup"

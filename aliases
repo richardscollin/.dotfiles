@@ -15,6 +15,14 @@ abbr ee "e ~/.env && source ~/.config/fish/config.fish"
 abbr ef "e ~/.config/fish/config.fish && source ~/.config/fish/config.fish"
 abbr eg "e ~/.config/git/config"
 abbr et "e ~/.config/tmux/tmux.conf && tmux source-file ~/.config/tmux/tmux.conf"
+abbr ev "e ~/.config/nvim/lua/plugins/"
+
+# git aliases
+abbr gap "git add -p"
+abbr co "git checkout"
+abbr sw "git switch"
+abbr lg "git lg"
+abbr pl "git pull"
 
 abbr perf_allow "echo -1 | sudo tee /proc/sys/kernel/perf_event_paranoid"
 
@@ -28,7 +36,7 @@ abbr o xdg-open
 abbr ru rustup update
 abbr rust evcxr
 abbr sl ls
-command -v t >/dev/null 2>&1 || abbr t tmux
+abbr t tmux
 
 # debian package manager aliases
 abbr get "sudo apt-get install"

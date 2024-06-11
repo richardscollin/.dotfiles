@@ -32,8 +32,12 @@ if status is-interactive
     # ctrl-backspace to delete previous word
     bind \b backward-kill-word
 
-    # export NVM_DIR="$HOME/.nvm"
-    # source "$NVM_DIR/nvm.sh"
+    # make alt-p the same as ctrl-p
+    bind -e \cp
+    bind \ep up-or-search
+
+    # make alt-n the same as ctrl-n
+    bind \en down-or-search
 
     fish_config prompt choose astronaut
 end
