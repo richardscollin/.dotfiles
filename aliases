@@ -1,14 +1,11 @@
 # bash fish compatiable abbr 
 # function abbr() { alias "$1"="$2"; }
 
-alias ...='cd $(git rev-parse --show-toplevel)'
-
-abbr c cargo
 abbr chmox "chmod +x"
-abbr copy "xclip -selection clipboard"
 abbr d docker
 [ ! -x /usr/bin/e ] && abbr e "$EDITOR" # if e-wrapper is not installed then alias e to $EDITOR
 
+# edit and reload config aliases
 abbr ea "e ~/.aliases && source ~/.config/fish/config.fish"
 abbr eaw "e ~/.aliases.work && source ~/.config/fish/config.fish"
 abbr ee "e ~/.env && source ~/.config/fish/config.fish"
@@ -19,24 +16,29 @@ abbr ev "e ~/.config/nvim/lua/plugins/"
 
 # git aliases
 abbr gap "git add -p"
-abbr co "git checkout"
-abbr sw "git switch"
-abbr lg "git lg"
-abbr pl "git pull"
+abbr co  "git checkout"
+abbr sw  "git switch"
+abbr lg  "git lg"
+abbr pl  "git pull"
 
+# when using perf to profile you must first disable some security settings
 abbr perf_allow "echo -1 | sudo tee /proc/sys/kernel/perf_event_paranoid"
+# restore the perf_event_paranoid to the default value (on debian)
+abbr perf_done "echo 3 | sudo tee /proc/sys/kernel/perf_event_paranoid"
 
 abbr g git
 abbr grep 'grep --color=auto'
 abbr info "info --vi-keys"
 abbr l ls
 abbr m make
-abbr nb newsboat
 abbr o xdg-open
-abbr ru rustup update
-abbr rust evcxr
 abbr sl ls
 abbr t tmux
+
+# rust specific aliases
+abbr c cargo
+abbr ru rustup update
+abbr rust evcxr
 
 # debian package manager aliases
 abbr get "sudo apt-get install"
