@@ -1,5 +1,6 @@
 [[ $- == *i* ]] || return # If not running interactively, don't do anything
 
+# these functions make external config files compatible with fish and bash
 abbr() { alias "$1"="$2"; }
 add_path() { export PATH="$PATH:$1"; }
 sourceif() { [[ -r "$1" ]] && source "$@"; }
@@ -13,14 +14,16 @@ sourceif ~/.aliases
 __git_ps1() { PS1="$1$2"; } # fallback if not sourced
 sourceif /usr/lib/git-core/git-sh-prompt
 PROMPT_COMMAND="__ps1"
-__ps1() { # modified from github.com/rwxrob/dot
-	# K - black, Y - yellow, B - blue, M - magenta, Z - reset
-	local K='\[\e[30m\]' Y='\[\e[33m\]' B='\[\e[34m\]' M='\[\e[35m\]' Z='\[\e[0m\]'
+__ps1() {
+	# https://talyian.github.io/ansicolors/
+	# https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797
+	#     K - black,     R - red,       G - green,     Y - yellow,    B - blue,      M - magenta,   C - cyan,      Z - reset
+	local K='\[\e[30m\]' R='\[\e[31m\]' G='\[\e[32m\]' Y='\[\e[33m\]' B='\[\e[34m\]' M='\[\e[35m\]' C='\[\e[36m\]' Z='\[\e[0m\]'
 	GIT_PS1_SHOWCOLORHINTS=1 \
 		GIT_PS1_SHOWDIRTYSTATE=1 \
 		GIT_PS1_SHOWSTASHSTATE=1 \
 		GIT_PS1_SHOWUNTRACKEDFILES=1 \
-		__git_ps1 "$K╔ $Y\u$K@$B\h$K:$M\w$Z" "\n$K╚ $B\$$Z "
+		__git_ps1 "$G\u@$Z\h $B\w$Z" "\n$G bash > $Z "
 }
 
 shopt -s histappend                  # append to the history file, don't overwrite it
@@ -52,5 +55,3 @@ function command_not_found_handle {
 
 add_path "$HOME/bin"
 add_path "$HOME/.local/bin"
-
-motd
