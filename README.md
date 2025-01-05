@@ -81,7 +81,6 @@ sudo stow tmux-3.4
 sudo stow --delete tmux-3.4
 ```
 
-
-
+<https://jeffkreeftmeijer.com/vim-16-color/>
 
 

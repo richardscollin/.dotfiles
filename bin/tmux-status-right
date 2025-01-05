@@ -1,0 +1,6 @@
+#!/bin/bash
+# echo "reese: switch to cursive"
+# echo -n "Cool Command Line Tools"
+# date
+# echo "$(playerctl metadata title) $(date -u +'%k:%M %Z') $(date +'%I:%M %p') "
+echo "$(playerctl metadata title) $(date +'%I:%M %p') "

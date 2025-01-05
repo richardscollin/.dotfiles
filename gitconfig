@@ -6,6 +6,7 @@
 	d       = diff
 	dc      = diff --cached
 	delete-remote-br = !sh -c 'git push origin :$1' -
+  ff      = pull --ff-only
 	hist    = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	l       = log --graph --stat
 	la      = log --graph --stat --all
@@ -14,8 +15,8 @@
 	ol      = log --oneline
 	pl      = pull
 	ps      = push
-	s       = status --ignored
-	st      = status --ignored
+	s       = status
+	st      = status
 	sw      = switch
 	re      = rebase
 	unstage = restore --staged
@@ -33,6 +34,7 @@
 [core]
 	autocrlf = input
 [diff]
+# noprefix = true
 	colorMoved = default
 	tool = meld
 [diff "odf"]
@@ -60,3 +62,5 @@
 	autoSetupRemote = true
 [tag]
 	sort = -version:refname
+[cinnabar]
+	version-check = 1730923024

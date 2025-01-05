@@ -2,43 +2,38 @@
 # function abbr() { alias "$1"="$2"; }
 
 abbr chmox "chmod +x"
-abbr d docker
-[ ! -x /usr/bin/e ] && abbr e "$EDITOR" # if e-wrapper is not installed then alias e to $EDITOR
+[ ! -x /usr/bin/e ] && abbr e "$EDITOR" # if e-wrapper is not installed then abbr e to $EDITOR
+[ ! -x /usr/bin/e ] && alias e="$EDITOR" # also alias
 
-# edit and reload config aliases
+# quick editor and reload config aliases
 abbr ea "e ~/.aliases && source ~/.config/fish/config.fish"
-abbr eaw "e ~/.aliases.work && source ~/.config/fish/config.fish"
+abbr eb "e ~/bin/"
 abbr ee "e ~/.env && source ~/.config/fish/config.fish"
 abbr ef "e ~/.config/fish/config.fish && source ~/.config/fish/config.fish"
-abbr eg "e ~/.config/git/config"
+abbr eg "e ~/.gitconfig"
+abbr es "e ~/.ssh/config"
 abbr et "e ~/.tmux.conf && tmux source-file ~/.tmux.conf"
 abbr ev "e ~/.config/nvim/lua/plugins/"
 
-# git aliases
-abbr gap "git add -p"
-abbr co  "git checkout"
-abbr sw  "git switch"
-abbr lg  "git lg"
-abbr pl  "git pull"
-
 # when using perf to profile you must first disable some security settings
-abbr perf_allow "echo -1 | sudo tee /proc/sys/kernel/perf_event_paranoid"
 # restore the perf_event_paranoid to the default value (on debian)
+abbr perf_allow "echo -1 | sudo tee /proc/sys/kernel/perf_event_paranoid"
 abbr perf_done "echo 3 | sudo tee /proc/sys/kernel/perf_event_paranoid"
 
+abbr c cargo
+abbr d docker
 abbr g git
-abbr grep 'grep --color=auto'
-abbr info "info --vi-keys"
 abbr l ls
-abbr m make
+abbr lg lazygit
 abbr o xdg-open
+abbr ru rustup update
+abbr rust evcxr
 abbr sl ls
 abbr t tmux
 
-# rust specific aliases
-abbr c cargo
-abbr ru rustup update
-abbr rust evcxr
+alias grep="grep --color=auto"
+alias info="info --vi-keys"
+alias ip="ip --color=auto"
 
 # debian package manager aliases
 abbr get "sudo apt-get install"
@@ -50,5 +45,9 @@ abbr update "sudo apt-get update && sudo apt-get upgrade"
 abbr ownswhat "dpkg --listfiles"
 abbr whoowns "dpkg-query -S"
 
-# mac aliases
-# alias ls="ls -G" # mac uses bsd ls which requires -G for colors instead of --colors
+# service related aliases
+abbr start "sudo systemctl start"
+abbr stop "sudo systemctl stop"
+abbr enable "sudo systemctl enable"
+abbr disable "sudo systemctl disable"
+abbr restart "sudo systemctl restart"

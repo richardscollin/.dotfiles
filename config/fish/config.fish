@@ -1,25 +1,26 @@
 if status is-interactive
-    function sourceif
+    function source_file_if
         [ -r "$argv[1]" ] && source "$argv"
     end
 
-    sourceif ~/.env
-    sourceif ~/.env.personal
-    sourceif ~/.env.work
-
-    sourceif ~/.aliases
-    sourceif ~/.aliases.work
-
-    if command -q zoxide
-        zoxide init fish | source
+    function source_cmd_if
+        command -q "$argv[1]" && $argv | source
     end
 
-    if command -q rustup
-        rustup completions fish | source
-    end
+    source_file_if ~/.env
+    source_file_if ~/.env.personal
+    source_file_if ~/.env.work
 
-    fish_add_path ~/bin
-    fish_add_path ~/.local/bin
+    source_file_if ~/.aliases
+    source_file_if ~/.aliases.work
+
+    source_cmd_if zoxide init fish
+    source_cmd_if rustup completions fish
+    source_cmd_if rg --generate=complete-fish
+
+    fish_add_path ~/bin ~/.local/bin
+    fish_add_path ~/.mozbuild/git-cinnabar
+    fish_add_path /usr/local/go/bin
 
     # bind ctrl-z to fg to resume suspended jobs
     # https://github.com/fish-shell/fish-shell/issues/7152#issuecomment-663575001
@@ -30,7 +31,7 @@ if status is-interactive
     bind \co __fish_list_current_token
 
     # ctrl-backspace to delete previous word
-    bind \b backward-kill-word
+    bind \b backward-kill-bigword
 
     # make alt-p the same as ctrl-p
     bind -e \cp
@@ -39,5 +40,6 @@ if status is-interactive
     # make alt-n the same as ctrl-n
     bind \en down-or-search
 
+    set -U fish_greeting
     fish_config prompt choose astronaut
 end

@@ -120,8 +120,9 @@ colorscheme collin
 
 " install with debian for more stable version
 " sudo apt-get install vim-ale
+let g:ale_linters = {'rust': ['analyzer']}
 packadd! ale
-autocmd FileType rust source /home/collin/.config/dotfiles/vim/rust.vim
+autocmd FileType rust source /home/collin/.dotfiles/vim/rust.vim
 
 " config that applies to just this file
 " :h modeline

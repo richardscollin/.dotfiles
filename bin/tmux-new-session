@@ -1,0 +1,2 @@
+#!/bin/bash
+exec tmux new-session -s $(shuf -n1 ~/.dotfiles/data/pokemon.txt)
