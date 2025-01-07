@@ -1,0 +1,32 @@
+# https://en.wikipedia.org/wiki/ANSI_escape_code#3-bit_and_4-bit
+[default]
+foreground = "#CCCCCC"
+background = "#0C0C0C"
+
+[cursor]
+foreground = "#CCCCCC"
+background = "#0C0C0C"
+
+[selection]
+foreground = "#CCCCCC"
+background = "#0C0C0C"
+
+[normal]
+black      = "#0C0C0C"
+red        = "#C50F1F"
+green      = "#13A10E"
+yellow     = "#C19C00"
+blue       = "#0037DA"
+magenta    = "#881798"
+cyan       = "#3A96DD"
+white      = "#CCCCCC"
+
+[bright]
+black      = "#767676"
+red        = "#E74856"
+green      = "#16C60C"
+yellow     = "#F9F1A5"
+blue       = "#3B78FF"
+magenta    = "#B4009E"
+cyan       = "#61D6D6"
+white      = "#F2F2F2"

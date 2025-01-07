@@ -1,0 +1,22 @@
+[/]
+audible-bell=false
+background-color='rgb(28,28,28)'
+bold-color-same-as-fg=true
+bold-is-bright=false
+cursor-background-color='rgb(235,219,178)'
+cursor-colors-set=true
+cursor-foreground-color='rgb(40,40,40)'
+custom-command='/home/collin/bin/tmux-new-session'
+default-size-rows=24
+font='JetBrainsMonoNL Nerd Font 11'
+foreground-color='rgb(218,204,165)'
+highlight-background-color='rgb(163,149,114)'
+highlight-colors-set=true
+highlight-foreground-color='rgb(40,40,40)'
+login-shell=true
+palette=['rgb(12, 12, 12)', 'rgb(197, 15, 31)', 'rgb(19, 161, 14)', 'rgb(193, 156, 0)', 'rgb(0, 55, 218)', 'rgb(136, 23, 152)', 'rgb(58, 150, 221)', 'rgb(204, 204, 204)', 'rgb(118, 118, 118)', 'rgb(231, 72, 86)', 'rgb(22, 198, 12)', 'rgb(249, 241, 165)', 'rgb(59, 120, 255)', 'rgb(180, 0, 158)', 'rgb(97, 214, 214)', 'rgb(242, 242, 242)']
+scrollback-unlimited=true
+use-custom-command=true
+use-system-font=false
+use-theme-colors=false
+visible-name='gruv'
