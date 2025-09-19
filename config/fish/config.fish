@@ -19,7 +19,6 @@ if status is-interactive
     source_cmd_if rg --generate=complete-fish
 
     fish_add_path ~/bin ~/.local/bin
-    fish_add_path ~/.mozbuild/git-cinnabar
     fish_add_path /usr/local/go/bin
 
     # bind ctrl-z to fg to resume suspended jobs
@@ -27,19 +26,10 @@ if status is-interactive
     # https://stackoverflow.com/a/75950692
     bind \cz 'fg 2>/dev/null; commandline -f repaint'
 
-    # ctrl-o to list
-    bind \co __fish_list_current_token
-
     # ctrl-backspace to delete previous word
     bind \b backward-kill-bigword
 
-    # make alt-p the same as ctrl-p
-    bind -e \cp
-    bind \ep up-or-search
-
-    # make alt-n the same as ctrl-n
-    bind \en down-or-search
-
-    set -U fish_greeting
-    fish_config prompt choose astronaut
+    # these should only need to be run once
+    # set -U fish_greeting
+    # fish_config prompt choose astronaut
 end
