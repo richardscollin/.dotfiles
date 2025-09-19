@@ -24,7 +24,6 @@ abbr c cargo
 abbr d docker
 abbr g git
 abbr l ls
-abbr lg lazygit
 abbr o xdg-open
 abbr ru rustup update
 abbr rust evcxr
@@ -36,14 +35,26 @@ alias info="info --vi-keys"
 alias ip="ip --color=auto"
 
 # debian package manager aliases
-abbr get "sudo apt-get install"
-abbr remove "sudo apt-get remove"
-abbr search "apt-cache search"
-abbr uninstall "sudo apt-get remove"
-abbr update "sudo apt-get update && sudo apt-get upgrade"
+#
+# abbr get "sudo apt-get install"
+# abbr remove "sudo apt-get remove"
+# abbr search "apt-cache search"
+# abbr uninstall "sudo apt-get remove"
+# abbr update "sudo apt-get update && sudo apt-get upgrade"
+# abbr ownswhat "dpkg --listfiles"
+# abbr whoowns "dpkg-query -S"
+# abbr provides "dpkg-query -S"
 
-abbr ownswhat "dpkg --listfiles"
-abbr whoowns "dpkg-query -S"
+# fedora package manager aliases
+#
+abbr get "sudo dnf install"
+abbr remove "sudo dnf uninstall"
+abbr search "dnf search"
+abbr uninstall "sudo dnf uninstall"
+abbr update "sudo dnf update"
+abbr ownswhat "dnf repoquery -l"
+abbr whoowns "dnf provides"
+abbr provides "dnf provides"
 
 # service related aliases
 abbr start "sudo systemctl start"
