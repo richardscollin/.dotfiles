@@ -2,8 +2,7 @@
 # function abbr() { alias "$1"="$2"; }
 
 abbr chmox "chmod +x"
-[ ! -x /usr/bin/e ] && abbr e "$EDITOR" # if e-wrapper is not installed then abbr e to $EDITOR
-[ ! -x /usr/bin/e ] && alias e="$EDITOR" # also alias
+! command -v e >/dev/null && alias e="$EDITOR" # e-wrapper is not installed then alias e to $EDITOR
 
 # quick editor and reload config aliases
 abbr ea "e ~/.aliases && source ~/.config/fish/config.fish"
@@ -31,7 +30,6 @@ abbr t tmux
 
 alias grep="grep --color=auto"
 alias info="info --vi-keys"
-alias ip="ip --color=auto"
 
 # debian package manager aliases
 #
@@ -47,9 +45,9 @@ alias ip="ip --color=auto"
 # fedora package manager aliases
 #
 abbr get "sudo dnf install"
-abbr remove "sudo dnf uninstall"
+abbr remove "sudo dnf remove"
 abbr search "dnf search"
-abbr uninstall "sudo dnf uninstall"
+abbr uninstall "sudo dnf remove"
 abbr update "sudo dnf update"
 abbr ownswhat "dnf repoquery -l"
 abbr whoowns "dnf provides"
