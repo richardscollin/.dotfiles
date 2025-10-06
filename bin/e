@@ -1,0 +1,66 @@
+#!/bin/bash
+
+# Editor wrapper script - handles file:lineno:colno syntax
+# Usage: e [file[:lineno]] [additional files...]
+# Examples:
+#   e file.txt
+#   e file.txt:42
+#   e file.txt:42:10  (line:column if editor supports it)
+#   e file1.txt file2.txt:25
+
+EDITOR="${VISUAL:-${EDITOR:-vim}}"
+
+# Function to open file with line number support
+open_file() {
+    local arg="$1"
+    local file line col
+    
+    # Parse file:line:col or file:line format
+    if [[ "$arg" =~ ^(.+):([0-9]+):([0-9]+)$ ]]; then
+        # file:line:col format
+        file="${BASH_REMATCH[1]}"
+        line="${BASH_REMATCH[2]}"
+        col="${BASH_REMATCH[3]}"
+    elif [[ "$arg" =~ ^(.+):([0-9]+)$ ]]; then
+        # file:line format
+        file="${BASH_REMATCH[1]}"
+        line="${BASH_REMATCH[2]}"
+        col=""
+    else
+        # Just a filename
+        file="$arg"
+        line=""
+        col=""
+    fi
+    
+    case "$(basename "$EDITOR")" in
+        vim|nvim)
+            if [[ -n "$line" && -n "$col" ]]; then
+                exec "$EDITOR" "+call cursor($line,$col)" "$file"
+            elif [[ -n "$line" ]]; then
+                exec "$EDITOR" "+$line" "$file"
+            else
+                exec "$EDITOR" "$file"
+            fi
+            ;;
+        *)
+            # Generic fallback - just open the file
+            if [[ -n "$line" ]]; then
+                echo "Warning: Line number support not configured for editor '$(basename "$EDITOR")'"
+                echo "Opening '$file' (line $line requested)"
+            fi
+            exec "$EDITOR" "$file"
+            ;;
+    esac
+}
+
+if [[ $# -eq 0 ]]; then
+    # No arguments - open editor with no files
+    exec "$EDITOR"
+elif [[ $# -eq 1 ]]; then
+    # Single argument - handle file:lineno syntax
+    open_file "$1"
+else
+    # Multiple arguments - for now, just pass them all to the editor
+    exec "$EDITOR" "$@"
+fi

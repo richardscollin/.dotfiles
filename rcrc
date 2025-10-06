@@ -1,3 +1,0 @@
-EXCLUDES="*.md vim"
-SYMLINK_DIRS="vim"
-UNDOTTED="bin"

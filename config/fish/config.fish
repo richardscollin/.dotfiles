@@ -29,6 +29,14 @@ if status is-interactive
     # ctrl-backspace to delete previous word
     bind \b backward-kill-bigword
 
+    # `commandline -f repaint` causes the prompt to be reprinted (otherwise it's hard to tell when the command is done)
+
+    # alt-r
+    bind \er 'cargo run; commandline -f repaint'
+
+    # alt-c
+    bind \ec 'cargo check; commandline -f repaint'
+
     # these should only need to be run once
     # set -U fish_greeting
     # fish_config prompt choose astronaut

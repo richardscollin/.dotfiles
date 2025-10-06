@@ -1,0 +1,58 @@
+# https://jj-vcs.github.io/jj/latest/config/
+
+[aliases]
+ab = ["abandon"]
+br = ["bookmark", "list"]
+d  = ["diff"]
+de = ["describe"]
+e  = ["edit"]
+ed = ["edit"]
+n  = ["new"]
+sq = ["squash"]
+
+newb = ["new", "-B", "@", "--no-edit"]
+shoot = ["squash", "--into", "@-"]
+shootp = ["squash", "-i", "--into", "@-"]
+
+main = ["bookmark", "set", "-r", "@-", "main"]
+book = ["bookmark", "set", "-r", "@-"]
+pushm = ["git", "push", "-b", "main"]
+pushb = ["git", "push", "-b"]
+
+[user]
+name = "Collin Richards"
+email = "richardscollin@gatech.edu"
+
+[templates]
+config_list = "builtin_config_list_detailed"
+log = '''
+if(root,
+  format_root_commit(self),
+  label(if(current_working_copy, "working_copy"),
+    concat(
+      format_short_commit_header(self) ++ "\n",
+      separate(" ",
+        if(empty, label("empty", "(empty)")),
+        if(description,
+          description.first_line(),
+          label(if(empty, "empty"), description_placeholder),
+        ),
+      ) ++ "\n"
+      ++ if(current_working_copy, diff.stat()),
+    ),
+  )
+)
+'''
+
+draft_commit_description = '''
+concat(
+  coalesce(description, default_commit_description, "\n"),
+  surround(
+    "\nJJ: This commit contains the following changes:\n", "",
+    indent("JJ:     ", diff.git())
+  ),
+)
+'''
+
+[ui]
+default-command = "log"

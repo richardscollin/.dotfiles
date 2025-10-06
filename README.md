@@ -1,29 +1,20 @@
 # dotfiles
 
-I manage my dotfiles using [rcm](http://thoughtbot.github.io/rcm/).
+I manage my dotfiles using `make`.
 
 ```bash
 git clone git@github.com:richardscollin/.dotfiles.git
 
-# install dotfiles with rcm
-sudo apt-get install rcm
+cd ~/.dotfiles
 
-# install just the rcrc config file
-RCRC=$HOME/.dotfiles/rcrc rcup -v rcrc
-
-# after rcrc config is installed,
-# future rcm commands don't require the RCRC environment variable to be set
-
-# check installation files for individual config before installing
-lsrc -v vim
+# check before installing
+make -n
 
 # install individual config
-rcup -v vim
+make ~/.config/nvim/init.lua
 
-# check installation files for all configs before installing
-lsrc -v
-
-rcup -v
+# install all configs
+make
 ```
 
 # Notes

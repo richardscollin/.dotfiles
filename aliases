@@ -8,9 +8,10 @@ abbr chmox "chmod +x"
 abbr ea "e ~/.aliases && source ~/.config/fish/config.fish"
 abbr ee "e ~/.env && source ~/.config/fish/config.fish"
 abbr ef "e ~/.config/fish/config.fish && source ~/.config/fish/config.fish"
-abbr eg "e ~/.gitconfig"
+abbr eg "e ~/.config/git/config"
+abbr ej "e ~/.config/jj/config.toml"
 abbr es "e ~/.ssh/config"
-abbr et "e ~/.tmux.conf && tmux source-file ~/.tmux.conf"
+abbr et "e ~/.config/tmux/tmux.conf && tmux source-file ~/.config/tmux/tmux.conf"
 abbr ev "e ~/.config/nvim/init.lua"
 
 # when using perf to profile you must first disable some security settings
@@ -21,12 +22,14 @@ abbr perf_done "echo 3 | sudo tee /proc/sys/kernel/perf_event_paranoid"
 abbr c cargo
 abbr d docker
 abbr g git
+abbr j jj
 abbr l ls
 abbr o xdg-open
-abbr ru rustup update
+abbr t tmux
+
+abbr cc "cargo check"
 abbr rust evcxr
 abbr sl ls
-abbr t tmux
 
 alias grep="grep --color=auto"
 alias info="info --vi-keys"
@@ -37,7 +40,7 @@ alias info="info --vi-keys"
 # abbr remove "sudo apt-get remove"
 # abbr search "apt-cache search"
 # abbr uninstall "sudo apt-get remove"
-# abbr update "sudo apt-get update && sudo apt-get upgrade"
+# abbr up "sudo apt-get update && sudo apt-get upgrade"
 # abbr ownswhat "dpkg --listfiles"
 # abbr whoowns "dpkg-query -S"
 # abbr provides "dpkg-query -S"
@@ -48,7 +51,7 @@ abbr get "sudo dnf install"
 abbr remove "sudo dnf remove"
 abbr search "dnf search"
 abbr uninstall "sudo dnf remove"
-abbr update "sudo dnf update"
+abbr up "sudo dnf update"
 abbr ownswhat "dnf repoquery -l"
 abbr whoowns "dnf provides"
 abbr provides "dnf provides"
