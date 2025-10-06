@@ -1,4 +1,4 @@
-.PHONY: all
+.PHONY: all bash fish git jj nvim tmux bin
 
 DOTFILES := $(HOME)/.dotfiles
 
@@ -17,6 +17,13 @@ TARGETS := \
 	$(HOME)/bin
 
 all: $(TARGETS)
+bash: $(HOME)/.bashrc $(HOME)/.aliases $(HOME)/.env
+fish: $(HOME)/.config/fish/config.fish $(HOME)/.aliases $(HOME)/.env
+git: $(HOME)/.config/git
+jj: $(HOME)/.config/jj
+nvim: $(HOME)/.config/nvim
+tmux: $(HOME)/.config/tmux
+bin: $(HOME)/bin
 
 $(HOME)/.aliases:
 	ln -s $(DOTFILES)/aliases $@
