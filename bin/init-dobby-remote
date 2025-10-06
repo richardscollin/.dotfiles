@@ -1,5 +1,0 @@
-#!/bin/bash
-set -xe
-REPO=$(basename $PWD)
-ssh dobby "git init --bare ~/repos/$REPO"
-git remote add dobby "dobby:~/repos/$REPO"

@@ -10,8 +10,8 @@ cd ~/.dotfiles
 # check before installing
 make -n
 
-# install individual config
-make ~/.config/nvim/init.lua
+# install individual config by name
+make nvim
 
 # install all configs
 make
